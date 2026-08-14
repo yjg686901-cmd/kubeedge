@@ -1,0 +1,201 @@
+# Old Admission behavior baseline cases.
+# Source: cloud/pkg/admissioncontroller (current master implementation).
+# Compare fields for migration: allowed, message_contains, patch (mutating).
+version: 1
+service:
+  namespace: kubeedge
+  name: kubeedge-admission-service
+  port: 443
+
+cases:
+  # ---- Device ----
+  - id: DEV-01
+    handler: admitDevice
+    path: /devices
+    fixture: fixtures/device-create-valid.json
+    operation: CREATE
+    expect:
+      allowed: true
+
+  - id: DEV-02
+    handler: admitDevice
+    path: /devices
+    fixture: fixtures/device-create-dup-props.json
+    operation: CREATE
+    expect:
+      allowed: false
+      message_contains: "property names must be unique."
+
+  - id: DEV-04
+    handler: admitDevice
+    path: /devices
+    operation: DELETE
+    expect:
+      allowed: true
+
+  - id: DEV-05
+    handler: admitDevice
+    path: /devices
+    operation: CONNECT
+    note: "code treats unknown ops; CONNECT is greenlit in switch with Delete"
+    expect:
+      allowed: true
+
+  # ---- DeviceModel ----
+  - id: DM-01
+    handler: admitDeviceModel
+    path: /devicemodels
+    fixture: fixtures/devicemodel-create-valid.json
+    operation: CREATE
+    expect:
+      allowed: true
+
+  - id: DM-02
+    handler: admitDeviceModel
+    path: /devicemodels
+    fixture: fixtures/devicemodel-create-dup-props.json
+    operation: CREATE
+    expect:
+      allowed: false
+      message_contains: "property names must be unique."
+
+  - id: DM-03
+    handler: admitDeviceModel
+    path: /devicemodels
+    operation: DELETE
+    expect:
+      allowed: true
+
+  # ---- RuleEndpoint ----
+  - id: RE-01
+    handler: admitRuleEndpoint
+    path: /ruleendpoints
+    fixture: fixtures/ruleendpoint-servicebus-valid.json
+    operation: CREATE
+    expect:
+      allowed: true
+
+  - id: RE-04
+    handler: admitRuleEndpoint
+    path: /ruleendpoints
+    fixture: fixtures/ruleendpoint-servicebus-bad-port.json
+    operation: CREATE
+    expect:
+      allowed: false
+      message_contains: "port must be in range 1-65535"
+
+  - id: RE-05
+    handler: admitRuleEndpoint
+    path: /ruleendpoints
+    operation: UPDATE
+    expect:
+      allowed: false
+      message_contains: "unsupported webhook operation"
+
+  - id: RE-06
+    handler: admitRuleEndpoint
+    path: /ruleendpoints
+    operation: DELETE
+    expect:
+      allowed: true
+
+  # ---- Rule (client-dependent) ----
+  - id: RULE-05
+    handler: admitRule
+    path: /rules
+    operation: DELETE
+    expect:
+      allowed: true
+
+  - id: RULE-06
+    handler: admitRule
+    path: /rules
+    operation: UPDATE
+    expect:
+      allowed: false
+      message_contains: "unsupported webhook operation"
+    note: "WebhookConfiguration registers UPDATE but handler rejects it"
+
+  - id: RULE-01
+    handler: admitRule
+    path: /rules
+    operation: CREATE
+    requires_client: true
+    fixture: fixtures/rule-create-rest-to-eventbus.json
+    expect:
+      allowed: true
+    note: "Needs RuleEndpoints rest-src and eventbus-dst in same namespace"
+
+  # ---- NodeUpgradeJob validating ----
+  - id: NU-V-01
+    handler: admitNodeUpgradeJob
+    path: /nodeupgradejobs
+    fixture: fixtures/nodeupgrade-create-valid.json
+    operation: CREATE
+    expect:
+      allowed: true
+
+  - id: NU-V-02
+    handler: admitNodeUpgradeJob
+    path: /nodeupgradejobs
+    fixture: fixtures/nodeupgrade-create-bad-version.json
+    operation: CREATE
+    expect:
+      allowed: false
+      message_contains: "invalid version"
+
+  - id: NU-V-08
+    handler: admitNodeUpgradeJob
+    path: /nodeupgradejobs
+    fixture: fixtures/nodeupgrade-update-spec-change.json
+    operation: UPDATE
+    expect:
+      allowed: false
+      message_contains: "spec fields are not allowed to update once it's created"
+
+  - id: NU-V-09
+    handler: admitNodeUpgradeJob
+    path: /nodeupgradejobs
+    operation: DELETE
+    expect:
+      allowed: true
+
+  # ---- OfflineMigration mutating ----
+  - id: OM-01
+    handler: mutateOfflineMigration
+    path: /offlinemigration
+    fixture: fixtures/offlinemigration-pod-no-toleration.json
+    operation: CREATE
+    expect:
+      allowed: true
+      patch_type: JSONPatch
+      patch_ops:
+        - op: replace
+          path: /spec/tolerations
+      patch_must_include_toleration_key: "node.kubernetes.io/unreachable"
+
+  # ---- NodeUpgradeJob mutating ----
+  - id: NU-M-01
+    handler: mutatingNodeUpgradeJob
+    path: /mutating/nodeupgradejobs
+    fixture: fixtures/nodeupgrade-mutate-defaults.json
+    operation: CREATE
+    expect:
+      allowed: true
+      patch_type: JSONPatch
+      patch_ops:
+        - op: add
+          path: /spec/concurrency
+          value: 1
+        - op: add
+          path: /spec/timeoutSeconds
+          value: 300
+
+  - id: NU-M-02
+    handler: mutatingNodeUpgradeJob
+    path: /mutating/nodeupgradejobs
+    fixture: fixtures/nodeupgrade-mutate-already-set.json
+    operation: CREATE
+    expect:
+      allowed: true
+      patch_empty: true

@@ -1,0 +1,88 @@
+# Generated from cloud/pkg/admissioncontroller/admission.go registerWebhooks
+# Defaults: webhook-namespace=kubeedge, webhook-service-name=kubeedge-admission-service, port=443
+# caBundle is a placeholder (base64 of "\n"); replace at install time.
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: kubeedge-crds-validate-webhook-configuration
+webhooks:
+  - name: validatedevice.kubeedge.io
+    admissionReviewVersions: ["v1"]
+    sideEffects: None
+    failurePolicy: Ignore
+    clientConfig:
+      caBundle: Cg==
+      service:
+        name: kubeedge-admission-service
+        namespace: kubeedge
+        path: /devices
+        port: 443
+    rules:
+      - apiGroups: ["devices.kubeedge.io"]
+        apiVersions: ["v1beta1"]
+        resources: ["devices"]
+        operations: ["CREATE", "UPDATE"]
+  - name: validatedevicemodel.kubeedge.io
+    admissionReviewVersions: ["v1"]
+    sideEffects: None
+    failurePolicy: Ignore
+    clientConfig:
+      caBundle: Cg==
+      service:
+        name: kubeedge-admission-service
+        namespace: kubeedge
+        path: /devicemodels
+        port: 443
+    rules:
+      - apiGroups: ["devices.kubeedge.io"]
+        apiVersions: ["v1beta1"]
+        resources: ["devicemodels"]
+        operations: ["CREATE", "UPDATE"]
+  - name: validatedrule.kubeedge.io
+    admissionReviewVersions: ["v1"]
+    sideEffects: None
+    failurePolicy: Fail
+    clientConfig:
+      caBundle: Cg==
+      service:
+        name: kubeedge-admission-service
+        namespace: kubeedge
+        path: /rules
+        port: 443
+    rules:
+      - apiGroups: ["rules.kubeedge.io"]
+        apiVersions: ["v1"]
+        resources: ["rules"]
+        operations: ["CREATE", "UPDATE", "DELETE"]
+  - name: validatedruleendpoint.kubeedge.io
+    admissionReviewVersions: ["v1"]
+    sideEffects: None
+    failurePolicy: Fail
+    clientConfig:
+      caBundle: Cg==
+      service:
+        name: kubeedge-admission-service
+        namespace: kubeedge
+        path: /ruleendpoints
+        port: 443
+    rules:
+      - apiGroups: ["rules.kubeedge.io"]
+        apiVersions: ["v1"]
+        resources: ["ruleendpoints"]
+        operations: ["CREATE", "UPDATE", "DELETE"]
+  - name: validatenodeupgradejob.kubeedge.io
+    admissionReviewVersions: ["v1"]
+    sideEffects: None
+    failurePolicy: Fail
+    clientConfig:
+      caBundle: Cg==
+      service:
+        name: kubeedge-admission-service
+        namespace: kubeedge
+        path: /nodeupgradejobs
+        port: 443
+    rules:
+      - apiGroups: ["operations.kubeedge.io"]
+        apiVersions: ["v1alpha1"]
+        resources: ["nodeupgradejobs"]
+        operations: ["CREATE", "UPDATE", "DELETE"]

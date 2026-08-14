@@ -1,0 +1,19 @@
+{
+  "apiVersion": "admission.k8s.io/v1",
+  "kind": "AdmissionReview",
+  "request": {
+    "uid": "baseline-nu-v-02",
+    "operation": "CREATE",
+    "kind": { "group": "operations.kubeedge.io", "version": "v1alpha1", "kind": "NodeUpgradeJob" },
+    "resource": { "group": "operations.kubeedge.io", "version": "v1alpha1", "resource": "nodeupgradejobs" },
+    "object": {
+      "apiVersion": "operations.kubeedge.io/v1alpha1",
+      "kind": "NodeUpgradeJob",
+      "metadata": { "name": "upgrade-bad-version" },
+      "spec": {
+        "version": "1.0.0",
+        "nodeNames": ["node1"]
+      }
+    }
+  }
+}

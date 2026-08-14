@@ -1,0 +1,26 @@
+{
+  "apiVersion": "admission.k8s.io/v1",
+  "kind": "AdmissionReview",
+  "request": {
+    "uid": "baseline-om-01",
+    "operation": "CREATE",
+    "kind": { "group": "", "version": "v1", "kind": "Pod" },
+    "resource": { "group": "", "version": "v1", "resource": "pods" },
+    "object": {
+      "apiVersion": "v1",
+      "kind": "Pod",
+      "metadata": {
+        "name": "autonomy-pod",
+        "namespace": "default",
+        "labels": {
+          "app-offline.kubeedge.io": "autonomy"
+        }
+      },
+      "spec": {
+        "containers": [
+          { "name": "app", "image": "busybox" }
+        ]
+      }
+    }
+  }
+}
