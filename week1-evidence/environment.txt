@@ -1,0 +1,22 @@
+===== Week 1 Compatibility Validation =====
+Fri Aug 14 06:47:45 UTC 2026
+
+Linux 56df52dc7971 6.12.76-linuxkit #1 SMP Mon Jul 27 16:56:11 UTC 2026 aarch64 GNU/Linux
+go version go1.23.12 linux/arm64
+
+Go module:
+go 1.23.12
+
+controller-runtime:
+	sigs.k8s.io/controller-runtime v0.20.4
+
+Kubernetes dependencies:
+	k8s.io/api v0.32.10
+	k8s.io/apimachinery v0.32.10
+	k8s.io/client-go v0.32.10
+	k8s.io/api => github.com/kubeedge/kubernetes/staging/src/k8s.io/api v1.32.10-kubeedge1
+	k8s.io/apimachinery => github.com/kubeedge/kubernetes/staging/src/k8s.io/apimachinery v1.32.10-kubeedge1
+	k8s.io/client-go => github.com/kubeedge/kubernetes/staging/src/k8s.io/client-go v1.32.10-kubeedge1
+
+Minimal compile: PASS
+CloudCore build: PASS

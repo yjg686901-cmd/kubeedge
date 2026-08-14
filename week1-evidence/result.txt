@@ -1,0 +1,20 @@
+Week 1 controller-runtime compatibility validation
+
+Environment:
+- OS: Linux
+- Architecture: ARM64
+- Go: 1.23.12
+- Kubernetes dependencies: v0.32.10
+- controller-runtime baseline: v0.19.7
+- controller-runtime candidate: v0.20.4
+
+Results:
+- v0.19.7 Controller Manager tests: PASS
+- v0.19.7 CloudCore build: PASS
+- v0.20.4 Controller Manager minimal compile: PASS
+- v0.20.4 CloudCore build: PASS
+
+Observation:
+- One full-suite v0.20.4 run showed a nodetask test failure.
+- The same TestImagePrePullJobInitNodesStatus passed when rerun independently.
+- Treat as a potential test-order/state-stability issue pending Week 2 investigation.
