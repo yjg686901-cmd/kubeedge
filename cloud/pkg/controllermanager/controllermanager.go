@@ -18,6 +18,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
+	"sigs.k8s.io/controller-runtime/pkg/webhook"
+	"sigs.k8s.io/controller-runtime/pkg/webhook/admission"
 
 	appsv1alpha1 "github.com/kubeedge/api/apis/apps/v1alpha1"
 	operationsv1alpha2 "github.com/kubeedge/api/apis/operations/v1alpha2"
@@ -40,16 +42,36 @@ type Controller interface {
 	reconcile.Reconciler
 }
 
-func NewControllerManager(ctx context.Context, kubeCfg *rest.Config, healthProbe string,
+func NewControllerManager(
+	ctx context.Context,
+	kubeCfg *rest.Config,
+	healthProbe string,
+	webhookPort int,
+	webhookCertDir string,
 ) (manager.Manager, error) {
 	const nothingCheckName = "nothing"
+
+	webhookServer := webhook.NewServer(webhook.Options{
+		Port:     webhookPort,
+		CertDir:  webhookCertDir,
+		CertName: "tls.crt",
+		KeyName:  "tls.key",
+	})
+
 	mgr, err := controllerruntime.NewManager(kubeCfg, controllerruntime.Options{
 		Scheme:                 kubeedgeScheme,
 		HealthProbeBindAddress: healthProbe,
+		WebhookServer:          webhookServer,
 	})
 	if err != nil {
 		return nil, fmt.Errorf("failed to create controller manager, err: %v", err)
 	}
+
+	webhookServer.Register("/test-admission", &admission.Webhook{
+		Handler: admission.HandlerFunc(func(_ context.Context, _ admission.Request) admission.Response {
+			return admission.Allowed("test webhook")
+		}),
+	})
 
 	if err := mgr.AddHealthzCheck(nothingCheckName, func(_ *http.Request) error {
 		return nil
@@ -60,6 +82,9 @@ func NewControllerManager(ctx context.Context, kubeCfg *rest.Config, healthProbe
 		return nil
 	}); err != nil {
 		return nil, fmt.Errorf("failed to add readyz check, err: %v", err)
+	}
+	if err := mgr.AddReadyzCheck("webhook", webhookServer.StartedChecker()); err != nil {
+		return nil, fmt.Errorf("failed to add webhook readyz check, err: %v", err)
 	}
 
 	che, err := newAndStartCache(ctx, kubeCfg)
