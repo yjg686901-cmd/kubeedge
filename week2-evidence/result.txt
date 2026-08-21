@@ -24,3 +24,9 @@ Results:
 - v0.20.4 minimal compile: PASS
 - v0.20.4 Controller Manager full tests: PASS
 - v0.20.4 CloudCore build: PASS
+
+Vendor validation:
+- go work vendor: PASS
+- Vendor mode minimal compile: PASS
+- Vendor mode Controller Manager full tests: PASS
+- Vendor mode CloudCore build: PASS
