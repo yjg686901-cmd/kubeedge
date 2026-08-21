@@ -30,3 +30,8 @@ Vendor validation:
 - Vendor mode minimal compile: PASS
 - Vendor mode Controller Manager full tests: PASS
 - Vendor mode CloudCore build: PASS
+
+Tooling validation:
+- controller-gen v0.17.3: PASS
+- setup-envtest release-0.20: PASS
+- Envtest binaries 1.32.0 linux/amd64: PASS
