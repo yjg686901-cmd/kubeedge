@@ -51,27 +51,38 @@ func NewControllerManager(
 ) (manager.Manager, error) {
 	const nothingCheckName = "nothing"
 
-	webhookServer := webhook.NewServer(webhook.Options{
-		Port:     webhookPort,
-		CertDir:  webhookCertDir,
-		CertName: "tls.crt",
-		KeyName:  "tls.key",
-	})
-
-	mgr, err := controllerruntime.NewManager(kubeCfg, controllerruntime.Options{
+	mgrOptions := controllerruntime.Options{
 		Scheme:                 kubeedgeScheme,
 		HealthProbeBindAddress: healthProbe,
-		WebhookServer:          webhookServer,
-	})
+	}
+
+	var webhookServer webhook.Server
+	if webhookPort > 0 {
+		webhookServer = webhook.NewServer(webhook.Options{
+			Port:     webhookPort,
+			CertDir:  webhookCertDir,
+			CertName: "tls.crt",
+			KeyName:  "tls.key",
+		})
+		mgrOptions.WebhookServer = webhookServer
+	}
+
+	mgr, err := controllerruntime.NewManager(kubeCfg, mgrOptions)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create controller manager, err: %v", err)
 	}
 
-	webhookServer.Register("/test-admission", &admission.Webhook{
-		Handler: admission.HandlerFunc(func(_ context.Context, _ admission.Request) admission.Response {
-			return admission.Allowed("test webhook")
-		}),
-	})
+	if webhookServer != nil {
+		// GetWebhookServer registers the configured server as a Manager runnable.
+		// Without this call the server is configured but never started by mgr.Start.
+		webhookServer = mgr.GetWebhookServer()
+
+		webhookServer.Register("/test-admission", &admission.Webhook{
+			Handler: admission.HandlerFunc(func(_ context.Context, _ admission.Request) admission.Response {
+				return admission.Allowed("test webhook")
+			}),
+		})
+	}
 
 	if err := mgr.AddHealthzCheck(nothingCheckName, func(_ *http.Request) error {
 		return nil
@@ -83,8 +94,10 @@ func NewControllerManager(
 	}); err != nil {
 		return nil, fmt.Errorf("failed to add readyz check, err: %v", err)
 	}
-	if err := mgr.AddReadyzCheck("webhook", webhookServer.StartedChecker()); err != nil {
-		return nil, fmt.Errorf("failed to add webhook readyz check, err: %v", err)
+	if webhookServer != nil {
+		if err := mgr.AddReadyzCheck("webhook", webhookServer.StartedChecker()); err != nil {
+			return nil, fmt.Errorf("failed to add webhook readyz check, err: %v", err)
+		}
 	}
 
 	che, err := newAndStartCache(ctx, kubeCfg)

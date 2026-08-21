@@ -35,3 +35,16 @@ Tooling validation:
 - controller-gen v0.17.3: PASS
 - setup-envtest release-0.20: PASS
 - Envtest binaries 1.32.0 linux/amd64: PASS
+
+Webhook Server framework validation:
+- Controller Manager webhook server wiring: PASS
+- TLS webhook server startup: PASS
+- Health/Readiness integration: PASS
+- AdmissionReview round trip over TLS: PASS
+- AdmissionReview allowed=true: PASS
+- AdmissionReview UID preservation: PASS
+- Manager graceful shutdown: PASS
+- Webhook listener port release after shutdown: PASS
+- Controller Manager Envtest full suite: 37/37 PASS
+- Legacy Admission regression tests: PASS
+- CloudCore build with webhook integration: PASS
