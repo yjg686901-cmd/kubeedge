@@ -1,0 +1,37 @@
+===== Week 2 Dependency Compatibility Validation =====
+Fri Aug 21 20:55:46 CST 2026
+
+Linux DESKTOP-63AAKJI 6.18.33.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun 18 21:54:43 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+go version go1.23.12 linux/amd64
+
+Go module:
+go 1.23.12
+
+controller-runtime:
+	sigs.k8s.io/controller-runtime v0.20.4
+
+Kubernetes dependencies:
+	k8s.io/api v0.32.10
+	k8s.io/apimachinery v0.32.10
+	k8s.io/client-go v0.32.10
+	k8s.io/api => github.com/kubeedge/kubernetes/staging/src/k8s.io/api v1.32.10-kubeedge1
+	k8s.io/apimachinery => github.com/kubeedge/kubernetes/staging/src/k8s.io/apimachinery v1.32.10-kubeedge1
+	k8s.io/client-go => github.com/kubeedge/kubernetes/staging/src/k8s.io/client-go v1.32.10-kubeedge1
+
+Results:
+- v0.19.7 Controller Manager tests: PASS
+- v0.19.7 CloudCore build: PASS
+- v0.20.4 minimal compile: PASS
+- v0.20.4 Controller Manager full tests: PASS
+- v0.20.4 CloudCore build: PASS
+
+Vendor validation:
+- go work vendor: PASS
+- Vendor mode minimal compile: PASS
+- Vendor mode Controller Manager full tests: PASS
+- Vendor mode CloudCore build: PASS
+
+Tooling validation:
+- controller-gen v0.17.3: PASS
+- setup-envtest release-0.20: PASS
+- Envtest binaries 1.32.0 linux/amd64: PASS
