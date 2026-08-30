@@ -5,7 +5,6 @@ import (
 	"net/http"
 
 	admissionv1 "k8s.io/api/admission/v1"
-	"k8s.io/klog/v2"
 
 	rulesv1 "github.com/kubeedge/api/apis/rules/v1"
 )
@@ -19,32 +18,14 @@ var (
 )
 
 func admitRule(review admissionv1.AdmissionReview) *admissionv1.AdmissionResponse {
-	reviewResponse := admissionv1.AdmissionResponse{}
-
-	switch review.Request.Operation {
-	case admissionv1.Create:
-		raw := review.Request.Object.Raw
-		rule := rulesv1.Rule{}
-		deserializer := codecs.UniversalDeserializer()
-		if _, _, err := deserializer.Decode(raw, nil, &rule); err != nil {
-			klog.Errorf("validation failed with error: %v", err)
-			return toAdmissionResponse(err)
-		}
-		err := validateRule(&rule)
-		if err != nil {
-			return toAdmissionResponse(err)
-		}
-		reviewResponse.Allowed = true
-		return &reviewResponse
-	case admissionv1.Delete, admissionv1.Connect:
-		//no rule defined for above operations, greenlight for all of above.
-		reviewResponse.Allowed = true
-		return &reviewResponse
-	default:
-		err := fmt.Errorf("unsupported webhook operation %v", review.Request.Operation)
-		klog.Errorf("Unsupported webhook operation %v", review.Request.Operation)
-		return toAdmissionResponse(err)
-	}
+	return validationHandler[rulesv1.Rule]{
+		newObject: func() *rulesv1.Rule { return &rulesv1.Rule{} },
+		validations: map[admissionv1.Operation]validationFunc[rulesv1.Rule]{
+			admissionv1.Create:  func(rule, _ *rulesv1.Rule) error { return validateRule(rule) },
+			admissionv1.Delete:  nil,
+			admissionv1.Connect: nil,
+		},
+	}.admit(review)
 }
 
 func validateRule(rule *rulesv1.Rule) error {

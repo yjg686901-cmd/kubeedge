@@ -24,7 +24,6 @@ import (
 	"reflect"
 
 	admissionv1 "k8s.io/api/admission/v1"
-	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/klog/v2"
 
 	"github.com/kubeedge/api/apis/operations/v1alpha1"
@@ -40,42 +39,28 @@ func serveMutatingNodeUpgradeJob(w http.ResponseWriter, r *http.Request) {
 }
 
 func admitNodeUpgradeJob(review admissionv1.AdmissionReview) *admissionv1.AdmissionResponse {
-	switch review.Request.Operation {
-	case admissionv1.Create:
-		raw := review.Request.Object.Raw
-		upgrade := v1alpha1.NodeUpgradeJob{}
-		deserializer := codecs.UniversalDeserializer()
-		if _, _, err := deserializer.Decode(raw, nil, &upgrade); err != nil {
-			return admissionResponse(fmt.Errorf("validation failed with error: %v", err))
-		}
-		return admissionResponse(validateNodeUpgradeJob(&upgrade))
+	return validationHandler[v1alpha1.NodeUpgradeJob]{
+		newObject: func() *v1alpha1.NodeUpgradeJob { return &v1alpha1.NodeUpgradeJob{} },
+		validations: map[admissionv1.Operation]validationFunc[v1alpha1.NodeUpgradeJob]{
+			admissionv1.Create: func(upgrade, _ *v1alpha1.NodeUpgradeJob) error {
+				return validateNodeUpgradeJob(upgrade)
+			},
+			admissionv1.Update: validateNodeUpgradeJobUpdate,
+			admissionv1.Delete: nil,
+		},
+		requiresOldObject: map[admissionv1.Operation]bool{admissionv1.Update: true},
+		decodeError: func(err error) error {
+			return fmt.Errorf("validation failed with error: %v", err)
+		},
+	}.admit(review)
+}
 
-	case admissionv1.Update:
-		newUpgrade := v1alpha1.NodeUpgradeJob{}
-		deserializer := codecs.UniversalDeserializer()
-		if _, _, err := deserializer.Decode(review.Request.Object.Raw, nil, &newUpgrade); err != nil {
-			return admissionResponse(fmt.Errorf("validation failed with error: %v", err))
-		}
-		oldUpgrade := v1alpha1.NodeUpgradeJob{}
-		if _, _, err := deserializer.Decode(review.Request.OldObject.Raw, nil, &oldUpgrade); err != nil {
-			return admissionResponse(fmt.Errorf("validation failed with error: %v", err))
-		}
-
-		// For update, we don't allow update spec fields once an Upgrade is created.
-		if !reflect.DeepEqual(oldUpgrade.Spec, newUpgrade.Spec) {
-			err := errors.New("spec fields are not allowed to update once it's created")
-			return admissionResponse(err)
-		}
-
-		return admissionResponse(validateNodeUpgradeJob(&newUpgrade))
-
-	case admissionv1.Delete:
-		//no rule defined for above operations, greenlight for all of above.
-		return admissionResponse(nil)
-	default:
-		err := fmt.Errorf("unsupported webhook operation %v", review.Request.Operation)
-		return admissionResponse(err)
+func validateNodeUpgradeJobUpdate(newUpgrade, oldUpgrade *v1alpha1.NodeUpgradeJob) error {
+	// For update, we don't allow update spec fields once an Upgrade is created.
+	if !reflect.DeepEqual(oldUpgrade.Spec, newUpgrade.Spec) {
+		return errors.New("spec fields are not allowed to update once it's created")
 	}
+	return validateNodeUpgradeJob(newUpgrade)
 }
 
 func validateNodeUpgradeJob(upgrade *v1alpha1.NodeUpgradeJob) error {
@@ -95,21 +80,6 @@ func validateNodeUpgradeJob(upgrade *v1alpha1.NodeUpgradeJob) error {
 	}
 
 	return nil
-}
-
-func admissionResponse(err error) *admissionv1.AdmissionResponse {
-	if err != nil {
-		return &admissionv1.AdmissionResponse{
-			Allowed: false,
-			Result: &metav1.Status{
-				Message: err.Error(),
-			},
-		}
-	}
-
-	return &admissionv1.AdmissionResponse{
-		Allowed: true,
-	}
 }
 
 func mutatingNodeUpgradeJob(review admissionv1.AdmissionReview) *admissionv1.AdmissionResponse {

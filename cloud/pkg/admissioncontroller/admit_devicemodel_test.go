@@ -114,10 +114,9 @@ func TestValidateDeviceModel(t *testing.T) {
 	assert := assert.New(t)
 
 	testCases := []struct {
-		name            string
-		deviceModel     *devicesv1beta1.DeviceModel
-		expectedAllowed bool
-		expectedMessage string
+		name        string
+		deviceModel *devicesv1beta1.DeviceModel
+		expectedErr string
 	}{
 		{
 			name: "Device model with unique properties",
@@ -130,8 +129,7 @@ func TestValidateDeviceModel(t *testing.T) {
 					},
 				},
 			},
-			expectedAllowed: true,
-			expectedMessage: "",
+			expectedErr: "",
 		},
 		{
 			name: "Device model with duplicate properties",
@@ -144,8 +142,7 @@ func TestValidateDeviceModel(t *testing.T) {
 					},
 				},
 			},
-			expectedAllowed: false,
-			expectedMessage: "property names must be unique.",
+			expectedErr: "property names must be unique.",
 		},
 		{
 			name: "Device model with no properties",
@@ -154,21 +151,18 @@ func TestValidateDeviceModel(t *testing.T) {
 					Properties: []devicesv1beta1.ModelProperty{},
 				},
 			},
-			expectedAllowed: true,
-			expectedMessage: "",
+			expectedErr: "",
 		},
 	}
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			response := &admissionv1.AdmissionResponse{
-				Allowed: true,
+			err := validateDeviceModel(tc.deviceModel)
+			if tc.expectedErr == "" {
+				assert.NoError(err)
+			} else {
+				assert.EqualError(err, tc.expectedErr)
 			}
-
-			msg := validateDeviceModel(tc.deviceModel, response)
-
-			assert.Equal(tc.expectedAllowed, response.Allowed)
-			assert.Equal(tc.expectedMessage, msg)
 		})
 	}
 }
