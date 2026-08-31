@@ -21,6 +21,7 @@ import (
 	"errors"
 	"testing"
 
+	jsonpatch "github.com/evanphx/json-patch"
 	"github.com/stretchr/testify/assert"
 	admissionv1 "k8s.io/api/admission/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -317,116 +318,135 @@ func TestAdmissionResponse(t *testing.T) {
 }
 
 func TestMutatingNodeUpgradeJob(t *testing.T) {
-	assert := assert.New(t)
-
-	upgrade := &v1alpha1.NodeUpgradeJob{
-		Spec: v1alpha1.NodeUpgradeJobSpec{
-			Version:   "v1.0.0",
-			NodeNames: []string{"node1", "node2"},
-		},
-	}
-	raw, err := json.Marshal(upgrade)
-	assert.NoError(err)
-
-	review := admissionv1.AdmissionReview{
-		Request: &admissionv1.AdmissionRequest{
-			Object: runtime.RawExtension{Raw: raw},
-		},
-	}
-	response := mutatingNodeUpgradeJob(review)
-
-	assert.True(response.Allowed)
-	assert.NotNil(response.Patch)
-	assert.Equal(admissionv1.PatchTypeJSONPatch, *response.PatchType)
-
-	// Unmarshal and check the patch
-	var patch []map[string]interface{}
-	err = json.Unmarshal(response.Patch, &patch)
-	assert.NoError(err)
-	assert.Len(patch, 2)
-	assert.Equal("add", patch[0]["op"])
-	assert.Equal("/spec/concurrency", patch[0]["path"])
-	assert.Equal(float64(1), patch[0]["value"])
-	assert.Equal("add", patch[1]["op"])
-	assert.Equal("/spec/timeoutSeconds", patch[1]["path"])
-	assert.Equal(float64(300), patch[1]["value"])
-}
-
-func TestGenerateNodeUpgradeJobPatch(t *testing.T) {
-	assert := assert.New(t)
-
-	testCases := []struct {
-		name          string
-		spec          v1alpha1.NodeUpgradeJobSpec
-		expectedPatch []patchValue
+	cases := []struct {
+		name       string
+		raw        []byte
+		wantPaths  []string
+		wantValues map[string]uint32
 	}{
 		{
-			name: "Concurrency and TimeoutSeconds both specified",
-			spec: v1alpha1.NodeUpgradeJobSpec{
-				Version:        "v1.0.0",
-				NodeNames:      []string{"node1"},
-				Concurrency:    2,
-				TimeoutSeconds: func() *uint32 { v := uint32(600); return &v }(),
-			},
-			expectedPatch: []patchValue{},
-		},
-		{
-			name: "None specified",
-			spec: v1alpha1.NodeUpgradeJobSpec{
-				Version:   "v1.0.0",
-				NodeNames: []string{"node1"},
-			},
-			expectedPatch: []patchValue{
-				{
-					Op:    "add",
-					Path:  "/spec/concurrency",
-					Value: 1,
-				},
-				{
-					Op:    "add",
-					Path:  "/spec/timeoutSeconds",
-					Value: func() *uint32 { v := uint32(300); return &v }(),
-				},
+			name:      "adds both defaults when fields are absent",
+			raw:       []byte(`{"spec":{}}`),
+			wantPaths: []string{"/spec/concurrency", "/spec/timeoutSeconds"},
+			wantValues: map[string]uint32{
+				"concurrency": 1, "timeoutSeconds": 300,
 			},
 		},
 		{
-			name: "Concurrency specified",
-			spec: v1alpha1.NodeUpgradeJobSpec{
-				Version:        "v1.0.0",
-				NodeNames:      []string{"node1"},
-				TimeoutSeconds: func() *uint32 { v := uint32(600); return &v }(),
-			},
-			expectedPatch: []patchValue{
-				{
-					Op:    "add",
-					Path:  "/spec/concurrency",
-					Value: 1,
-				},
+			name:      "preserves explicit zero concurrency",
+			raw:       []byte(`{"spec":{"concurrency":0}}`),
+			wantPaths: []string{"/spec/timeoutSeconds"},
+			wantValues: map[string]uint32{
+				"concurrency": 0, "timeoutSeconds": 300,
 			},
 		},
 		{
-			name: "TimeoutSeconds specified",
-			spec: v1alpha1.NodeUpgradeJobSpec{
-				Version:     "v1.0.0",
-				NodeNames:   []string{"node1"},
-				Concurrency: 2,
+			name:      "preserves explicit nonzero concurrency",
+			raw:       []byte(`{"spec":{"concurrency":5}}`),
+			wantPaths: []string{"/spec/timeoutSeconds"},
+			wantValues: map[string]uint32{
+				"concurrency": 5, "timeoutSeconds": 300,
 			},
-			expectedPatch: []patchValue{
-				{
-					Op:    "add",
-					Path:  "/spec/timeoutSeconds",
-					Value: func() *uint32 { v := uint32(300); return &v }(),
-				},
+		},
+		{
+			name:      "preserves explicit timeoutSeconds",
+			raw:       []byte(`{"spec":{"timeoutSeconds":900}}`),
+			wantPaths: []string{"/spec/concurrency"},
+			wantValues: map[string]uint32{
+				"concurrency": 1, "timeoutSeconds": 900,
+			},
+		},
+		{
+			name:      "adds only missing timeoutSeconds",
+			raw:       []byte(`{"spec":{"concurrency":2}}`),
+			wantPaths: []string{"/spec/timeoutSeconds"},
+			wantValues: map[string]uint32{
+				"concurrency": 2, "timeoutSeconds": 300,
+			},
+		},
+		{
+			name: "returns empty patch when both fields are present",
+			raw:  []byte(`{"spec":{"concurrency":0,"timeoutSeconds":0}}`),
+			wantValues: map[string]uint32{
+				"concurrency": 0, "timeoutSeconds": 0,
 			},
 		},
 	}
 
-	for _, tc := range testCases {
-		t.Run(tc.name, func(t *testing.T) {
-			patch := generateNodeUpgradeJobPatch(tc.spec)
-			assert.Equal(tc.expectedPatch, patch)
+	for _, tt := range cases {
+		t.Run(tt.name, func(t *testing.T) {
+			response := mutatingNodeUpgradeJob(admissionv1.AdmissionReview{Request: &admissionv1.AdmissionRequest{
+				Object: runtime.RawExtension{Raw: tt.raw},
+			}})
+			if !response.Allowed {
+				t.Fatalf("response was rejected: %#v", response.Result)
+			}
+			if len(tt.wantPaths) == 0 {
+				if response.Patch != nil || response.PatchType != nil {
+					t.Fatalf("unexpected patch: %s", response.Patch)
+				}
+				return
+			}
+
+			var patch []patchValue
+			if err := json.Unmarshal(response.Patch, &patch); err != nil {
+				t.Fatal(err)
+			}
+			if len(patch) != len(tt.wantPaths) {
+				t.Fatalf("patch = %#v, want paths %#v", patch, tt.wantPaths)
+			}
+			for i, path := range tt.wantPaths {
+				if patch[i].Op != "add" || patch[i].Path != path {
+					t.Fatalf("patch = %#v, want add %s", patch[i], path)
+				}
+			}
+
+			mutatedRaw := applyNodeUpgradeJobPatch(t, tt.raw, response.Patch)
+			var mutated struct {
+				Spec map[string]uint32 `json:"spec"`
+			}
+			if err := json.Unmarshal(mutatedRaw, &mutated); err != nil {
+				t.Fatal(err)
+			}
+			if !assert.Equal(t, tt.wantValues, mutated.Spec) {
+				t.Fatalf("mutated object = %s", mutatedRaw)
+			}
 		})
 	}
+}
+
+func TestMutatingNodeUpgradeJobIsIdempotent(t *testing.T) {
+	raw := []byte(`{"spec":{}}`)
+	firstResponse := mutatingNodeUpgradeJob(admissionv1.AdmissionReview{Request: &admissionv1.AdmissionRequest{
+		Object: runtime.RawExtension{Raw: raw},
+	}})
+	if !firstResponse.Allowed || firstResponse.Patch == nil {
+		t.Fatalf("first response = %#v", firstResponse)
+	}
+
+	mutatedRaw := applyNodeUpgradeJobPatch(t, raw, firstResponse.Patch)
+	secondResponse := mutatingNodeUpgradeJob(admissionv1.AdmissionReview{Request: &admissionv1.AdmissionRequest{
+		Object: runtime.RawExtension{Raw: mutatedRaw},
+	}})
+	if !secondResponse.Allowed {
+		t.Fatalf("second response was rejected: %#v", secondResponse.Result)
+	}
+	if secondResponse.Patch != nil || secondResponse.PatchType != nil {
+		t.Fatalf("second mutation produced patch: %s", secondResponse.Patch)
+	}
+}
+
+func applyNodeUpgradeJobPatch(t *testing.T, raw, rawPatch []byte) []byte {
+	t.Helper()
+	patch, err := jsonpatch.DecodePatch(rawPatch)
+	if err != nil {
+		t.Fatal(err)
+	}
+	mutated, err := patch.Apply(raw)
+	if err != nil {
+		t.Fatal(err)
+	}
+	return mutated
 }
 
 func TestValidateNodeUpgradeJobAllowsOptionalAndValidImage(t *testing.T) {
@@ -461,19 +481,5 @@ func TestValidateNodeUpgradeJobAllowsOptionalAndValidImage(t *testing.T) {
 				t.Fatalf("expected no error, got %v", err)
 			}
 		})
-	}
-}
-
-func TestGenerateNodeUpgradeJobPatchReturnsEmptyWhenDefaultsSpecified(t *testing.T) {
-	timeoutSeconds := uint32(600)
-	patch := generateNodeUpgradeJobPatch(v1alpha1.NodeUpgradeJobSpec{
-		Version:        "v1.0.0",
-		NodeNames:      []string{"node1"},
-		Concurrency:    2,
-		TimeoutSeconds: &timeoutSeconds,
-	})
-
-	if len(patch) != 0 {
-		t.Fatalf("expected empty patch, got %#v", patch)
 	}
 }

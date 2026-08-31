@@ -24,7 +24,6 @@ import (
 	"reflect"
 
 	admissionv1 "k8s.io/api/admission/v1"
-	"k8s.io/klog/v2"
 
 	"github.com/kubeedge/api/apis/operations/v1alpha1"
 	"github.com/kubeedge/kubeedge/pkg/util/validation"
@@ -83,54 +82,41 @@ func validateNodeUpgradeJob(upgrade *v1alpha1.NodeUpgradeJob) error {
 }
 
 func mutatingNodeUpgradeJob(review admissionv1.AdmissionReview) *admissionv1.AdmissionResponse {
-	reviewResponse := admissionv1.AdmissionResponse{
-		Allowed: true,
-	}
-
-	var upgrade v1alpha1.NodeUpgradeJob
-	if err := json.Unmarshal(review.Request.Object.Raw, &upgrade); err != nil {
-		klog.Errorf("Could not unmarshal raw object: %v", err)
-		return toAdmissionResponse(err)
-	}
-
-	payload := generateNodeUpgradeJobPatch(upgrade.Spec)
-	if len(payload) == 0 {
-		return &reviewResponse
-	}
-
-	patch, err := json.Marshal(payload)
-	if err != nil {
-		return toAdmissionResponse(err)
-	}
-
-	reviewResponse.Patch = patch
-	pt := admissionv1.PatchTypeJSONPatch
-	reviewResponse.PatchType = &pt
-	return &reviewResponse
+	return mutationHandler[v1alpha1.NodeUpgradeJob, patchValue]{
+		newObject: func() *v1alpha1.NodeUpgradeJob { return &v1alpha1.NodeUpgradeJob{} },
+		rawMutation: func(_ *v1alpha1.NodeUpgradeJob, rawObject []byte) ([]patchValue, error) {
+			return generateNodeUpgradeJobPatch(rawObject)
+		},
+	}.admit(review)
 }
 
-func generateNodeUpgradeJobPatch(spec v1alpha1.NodeUpgradeJobSpec) []patchValue {
+func generateNodeUpgradeJobPatch(rawObject []byte) ([]patchValue, error) {
+	var object struct {
+		Spec map[string]json.RawMessage `json:"spec"`
+	}
+	if err := json.Unmarshal(rawObject, &object); err != nil {
+		return nil, err
+	}
+
 	patch := make([]patchValue, 0)
 
-	// mutate .spec.concurrency to default value 1 if not specified
-	if spec.Concurrency == 0 {
+	// Inspect raw JSON so an explicitly supplied concurrency: 0 is preserved.
+	if _, exists := object.Spec["concurrency"]; !exists {
 		patch = append(patch, patchValue{
 			Op:    "add",
 			Path:  "/spec/concurrency",
 			Value: 1,
 		})
 	}
-	// mutate .spec.timeoutSeconds to default value 300 if not specified
-	if spec.TimeoutSeconds == nil {
-		var defaultTimeoutSeconds uint32 = 300
+	if _, exists := object.Spec["timeoutSeconds"]; !exists {
 		patch = append(patch, patchValue{
 			Op:    "add",
 			Path:  "/spec/timeoutSeconds",
-			Value: &defaultTimeoutSeconds,
+			Value: uint32(300),
 		})
 	}
 
-	return patch
+	return patch, nil
 }
 
 type patchValue struct {

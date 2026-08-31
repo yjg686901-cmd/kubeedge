@@ -1,4 +1,4 @@
-{{- if .Values.admission.enable }}
+{{- if or .Values.admission.enable (and .Values.controllerManager.enable (gt (int .Values.controllerManager.webhook.port) 0)) }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -10,10 +10,20 @@ spec:
   ports:
     - port: 443
       protocol: TCP
+      {{- if and .Values.controllerManager.enable (gt (int .Values.controllerManager.webhook.port) 0) }}
+      targetPort: {{ .Values.controllerManager.webhook.port }}
+      {{- else }}
       targetPort: 443
+      {{- end }}
   selector:
+  {{- if and .Values.controllerManager.enable (gt (int .Values.controllerManager.webhook.port) 0) }}
+  {{- with .Values.controllerManager.labels }}
+  {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- else }}
   {{- with .Values.admission.labels }}
   {{- toYaml . | nindent 4 }}
+  {{- end }}
   {{- end }}
   sessionAffinity: None
 {{- end }}

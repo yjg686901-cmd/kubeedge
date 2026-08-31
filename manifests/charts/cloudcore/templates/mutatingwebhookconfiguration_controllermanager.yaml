@@ -1,0 +1,60 @@
+{{- if and .Values.controllerManager.enable (gt (int .Values.controllerManager.webhook.port) 0) .Values.controllerManager.webhook.caBundle }}
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: mutate-offlinemigration
+webhooks:
+  - name: mutateofflinemigration.kubeedge.io
+    admissionReviewVersions:
+      - v1
+    sideEffects: None
+    failurePolicy: Ignore
+    clientConfig:
+      service:
+        name: kubeedge-admission-service
+        namespace: {{ .Release.Namespace }}
+        path: /offlinemigration
+        port: 443
+      caBundle: {{ .Values.controllerManager.webhook.caBundle }}
+    objectSelector:
+      matchLabels:
+        app-offline.kubeedge.io: autonomy
+    rules:
+      - apiGroups:
+          - ""
+        apiVersions:
+          - v1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - pods
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: kubeedge-mutating-webhook
+webhooks:
+  - name: mutatingnodeupgradejob.kubeedge.io
+    admissionReviewVersions:
+      - v1
+    sideEffects: None
+    failurePolicy: Ignore
+    clientConfig:
+      service:
+        name: kubeedge-admission-service
+        namespace: {{ .Release.Namespace }}
+        path: /mutating/nodeupgradejobs
+        port: 443
+      caBundle: {{ .Values.controllerManager.webhook.caBundle }}
+    rules:
+      - apiGroups:
+          - operations.kubeedge.io
+        apiVersions:
+          - v1alpha1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - nodeupgradejobs
+{{- end }}

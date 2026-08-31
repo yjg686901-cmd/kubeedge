@@ -28,9 +28,31 @@ spec:
         - name: controller-manager
           image: {{ .Values.controllerManager.image.repository }}:{{ .Values.controllerManager.image.tag }}
           imagePullPolicy: {{ .Values.controllerManager.image.pullPolicy }}
+          {{- if gt (int .Values.controllerManager.webhook.port) 0 }}
+          args:
+            - --webhook-port={{ .Values.controllerManager.webhook.port }}
+            - --webhook-cert-dir={{ .Values.controllerManager.webhook.certDir }}
+          ports:
+            - name: webhook
+              containerPort: {{ .Values.controllerManager.webhook.port }}
+              protocol: TCP
+          {{- if .Values.controllerManager.webhook.certsSecretName }}
+          volumeMounts:
+            - name: webhook-certs
+              mountPath: {{ .Values.controllerManager.webhook.certDir }}
+              readOnly: true
+          {{- end }}
+          {{- end }}
           {{- with .Values.controllerManager.resources }}
           resources: {{ toYaml . | nindent 12 }}
           {{- end }}
+      {{- if and (gt (int .Values.controllerManager.webhook.port) 0) .Values.controllerManager.webhook.certsSecretName }}
+      volumes:
+        - name: webhook-certs
+          secret:
+            defaultMode: 420
+            secretName: {{ .Values.controllerManager.webhook.certsSecretName }}
+      {{- end }}
       restartPolicy: Always
       serviceAccountName: controller-manager
       {{- with .Values.controllerManager.affinity }}

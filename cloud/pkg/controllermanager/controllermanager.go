@@ -23,6 +23,7 @@ import (
 
 	appsv1alpha1 "github.com/kubeedge/api/apis/apps/v1alpha1"
 	operationsv1alpha2 "github.com/kubeedge/api/apis/operations/v1alpha2"
+	"github.com/kubeedge/kubeedge/cloud/pkg/admissioncontroller"
 	"github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/edgeapplication"
 	"github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/nodegroup"
 	"github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/nodetask"
@@ -76,6 +77,10 @@ func NewControllerManager(
 		// GetWebhookServer registers the configured server as a Manager runnable.
 		// Without this call the server is configured but never started by mgr.Start.
 		webhookServer = mgr.GetWebhookServer()
+
+		if err := admissioncontroller.RegisterWebhooks(webhookServer, kubeCfg); err != nil {
+			return nil, fmt.Errorf("failed to register admission webhooks: %w", err)
+		}
 
 		webhookServer.Register("/test-admission", &admission.Webhook{
 			Handler: admission.HandlerFunc(func(_ context.Context, _ admission.Request) admission.Response {

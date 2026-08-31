@@ -111,6 +111,11 @@ iptablesManager:
 
 controllerManager:
   enable: false
+  webhook:
+    port: -1
+    certDir: "/admission.local.config/certificates"
+    certsSecretName: ""
+    caBundle: ""
   image:
     repository: "kubeedge/controller-manager"
     tag: "v1.23.0"
