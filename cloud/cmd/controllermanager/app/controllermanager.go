@@ -36,6 +36,7 @@ func NewControllerManagerCommand(ctx context.Context) *cobra.Command {
 				ctx,
 				kubeconfig,
 				opts.HealthProbeBindAddress,
+				opts.MetricsBindAddress,
 				opts.WebhookPort,
 				opts.WebhookCertDir,
 			)

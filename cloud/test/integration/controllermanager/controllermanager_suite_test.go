@@ -102,6 +102,7 @@ var _ = BeforeSuite(func() {
 		ctx,
 		cfg,
 		healthProbeAddress,
+		"0",
 		webhookPort,
 		webhookCertDir,
 	)
@@ -112,6 +113,9 @@ var _ = BeforeSuite(func() {
 	go func() {
 		managerDone <- controllerManager.Start(ctx)
 	}()
+
+	By("waiting for the controller manager cache to sync")
+	Expect(controllerManager.GetCache().WaitForCacheSync(ctx)).To(BeTrue())
 })
 
 var _ = AfterSuite(func() {

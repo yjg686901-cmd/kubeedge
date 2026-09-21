@@ -17,6 +17,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/cache"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/manager"
+	metricsserver "sigs.k8s.io/controller-runtime/pkg/metrics/server"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
@@ -46,6 +47,7 @@ func NewControllerManager(
 	ctx context.Context,
 	kubeCfg *rest.Config,
 	healthProbe string,
+	metricsBindAddress string,
 	webhookPort int,
 	webhookCertDir string,
 ) (manager.Manager, error) {
@@ -54,6 +56,7 @@ func NewControllerManager(
 	mgrOptions := controllerruntime.Options{
 		Scheme:                 kubeedgeScheme,
 		HealthProbeBindAddress: healthProbe,
+		Metrics:                metricsserver.Options{BindAddress: metricsBindAddress},
 	}
 
 	var webhookServer webhook.Server

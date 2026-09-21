@@ -43,4 +43,9 @@ func TestFlags(t *testing.T) {
 	assert.Equal("use-server-side-apply", flag.Name)
 	assert.Equal("false", flag.DefValue)
 	assert.Equal("If use server-side apply when updating templates.", flag.Usage)
+
+	flag = fs.Lookup("metrics-bind-address")
+	assert.NotNil(flag)
+	assert.Equal("metrics-bind-address", flag.Name)
+	assert.Equal(":8080", flag.DefValue)
 }
