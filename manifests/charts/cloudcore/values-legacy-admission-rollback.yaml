@@ -1,0 +1,7 @@
+# Overlay that returns kubeedge-admission-service to the legacy Deployment.
+controllerManager:
+  webhook:
+    enable: false
+
+admission:
+  enable: true

@@ -1,0 +1,13 @@
+# Overlay for moving admission webhooks into kubeedge-controller-manager.
+# Provide controllerManager.webhook.caBundle separately from a protected,
+# environment-specific values file or with --set-string.
+controllerManager:
+  enable: true
+  webhook:
+    enable: true
+    port: 9443
+    certDir: /admission.local.config/certificates
+    certsSecretName: kubeedge-webhook-certs
+
+admission:
+  enable: false

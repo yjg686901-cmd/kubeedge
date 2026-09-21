@@ -62,6 +62,13 @@ webhooks. Store a serving certificate and key in a TLS Secret before enabling th
 webhook. The certificate must include
 `kubeedge-admission-service.<namespace>.svc` in its DNS names.
 
+For a development or isolated test environment, generate a suitable certificate
+with:
+
+```bash
+hack/generate-controller-manager-webhook-certs.sh kubeedge ./webhook-certs
+```
+
 ```bash
 kubectl -n kubeedge create secret tls kubeedge-webhook-certs \
   --cert=tls.crt \
@@ -86,6 +93,9 @@ For rollback, upgrade the release with
 the Service selector and port back to the legacy Deployment in one Helm release.
 Keep the legacy image available until the controller manager webhook has passed
 the full admission regression suite in the target cluster.
+
+The chart also includes `values-controller-manager-webhook.yaml` for cutover and
+`values-legacy-admission-rollback.yaml` for rollback.
 
 ## Uninstall
 
