@@ -1,4 +1,4 @@
-{{- if and .Values.controllerManager.enable (gt (int .Values.controllerManager.webhook.port) 0) .Values.controllerManager.webhook.caBundle }}
+{{- if and .Values.controllerManager.enable .Values.controllerManager.webhook.enable }}
 apiVersion: admissionregistration.k8s.io/v1
 kind: ValidatingWebhookConfiguration
 metadata:

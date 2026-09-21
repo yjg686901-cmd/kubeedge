@@ -112,7 +112,8 @@ iptablesManager:
 controllerManager:
   enable: false
   webhook:
-    port: -1
+    enable: false
+    port: 9443
     certDir: "/admission.local.config/certificates"
     certsSecretName: ""
     caBundle: ""

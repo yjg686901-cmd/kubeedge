@@ -19,7 +19,6 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
-	"sigs.k8s.io/controller-runtime/pkg/webhook/admission"
 
 	appsv1alpha1 "github.com/kubeedge/api/apis/apps/v1alpha1"
 	operationsv1alpha2 "github.com/kubeedge/api/apis/operations/v1alpha2"
@@ -82,11 +81,6 @@ func NewControllerManager(
 			return nil, fmt.Errorf("failed to register admission webhooks: %w", err)
 		}
 
-		webhookServer.Register("/test-admission", &admission.Webhook{
-			Handler: admission.HandlerFunc(func(_ context.Context, _ admission.Request) admission.Response {
-				return admission.Allowed("test webhook")
-			}),
-		})
 	}
 
 	if err := mgr.AddHealthzCheck(nothingCheckName, func(_ *http.Request) error {

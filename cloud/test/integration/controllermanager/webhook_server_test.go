@@ -89,7 +89,7 @@ var _ = Describe("Controller Manager Webhook Server", func() {
 			Timeout: 5 * time.Second,
 		}
 
-		const requestUID = "week2-webhook-test-uid"
+		const requestUID = "controller-manager-webhook-test-uid"
 
 		review := admissionv1.AdmissionReview{
 			TypeMeta: metav1.TypeMeta{
@@ -101,13 +101,15 @@ var _ = Describe("Controller Manager Webhook Server", func() {
 				UID: types.UID(requestUID),
 
 				Kind: metav1.GroupVersionKind{
-					Version: "v1",
-					Kind:    "Pod",
+					Group:   "operations.kubeedge.io",
+					Version: "v1alpha1",
+					Kind:    "NodeUpgradeJob",
 				},
 
 				Resource: metav1.GroupVersionResource{
-					Version:  "v1",
-					Resource: "pods",
+					Group:    "operations.kubeedge.io",
+					Version:  "v1alpha1",
+					Resource: "nodeupgradejobs",
 				},
 
 				Name:      "webhook-test",
@@ -116,12 +118,13 @@ var _ = Describe("Controller Manager Webhook Server", func() {
 
 				Object: runtime.RawExtension{
 					Raw: []byte(`{
-"apiVersion":"v1",
-"kind":"Pod",
+"apiVersion":"operations.kubeedge.io/v1alpha1",
+"kind":"NodeUpgradeJob",
 "metadata":{
 "name":"webhook-test",
 "namespace":"default"
-}
+},
+"spec":{}
 }`),
 				},
 			},
@@ -133,7 +136,7 @@ var _ = Describe("Controller Manager Webhook Server", func() {
 		req, err := http.NewRequest(
 			http.MethodPost,
 			fmt.Sprintf(
-				"https://localhost:%d/test-admission",
+				"https://localhost:%d/mutating/nodeupgradejobs",
 				webhookPort,
 			),
 			bytes.NewReader(body),
@@ -174,8 +177,14 @@ var _ = Describe("Controller Manager Webhook Server", func() {
 		Expect(
 			responseReview.Response.UID,
 		).To(Equal(types.UID(requestUID)))
+		Expect(responseReview.Response.PatchType).NotTo(BeNil())
+		Expect(*responseReview.Response.PatchType).To(Equal(admissionv1.PatchTypeJSONPatch))
+		Expect(responseReview.Response.Patch).To(MatchJSON(`[
+{"op":"add","path":"/spec/concurrency","value":1},
+{"op":"add","path":"/spec/timeoutSeconds","value":300}
+]`))
 
-		By("AdmissionReview allowed and UID preserved")
+		By("AdmissionReview allowed, UID preserved, and defaults returned as JSON Patch")
 	})
 })
 

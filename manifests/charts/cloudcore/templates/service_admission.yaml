@@ -1,4 +1,16 @@
-{{- if or .Values.admission.enable (and .Values.controllerManager.enable (gt (int .Values.controllerManager.webhook.port) 0)) }}
+{{- if and .Values.admission.enable .Values.controllerManager.webhook.enable }}
+{{- fail "admission.enable and controllerManager.webhook.enable cannot both be true; select one webhook backend" }}
+{{- end }}
+{{- if and .Values.controllerManager.webhook.enable (not .Values.controllerManager.enable) }}
+{{- fail "controllerManager.enable must be true when controllerManager.webhook.enable is true" }}
+{{- end }}
+{{- if and .Values.controllerManager.webhook.enable (not .Values.controllerManager.webhook.certsSecretName) }}
+{{- fail "controllerManager.webhook.certsSecretName is required when the controller-manager webhook is enabled" }}
+{{- end }}
+{{- if and .Values.controllerManager.webhook.enable (not .Values.controllerManager.webhook.caBundle) }}
+{{- fail "controllerManager.webhook.caBundle is required when the controller-manager webhook is enabled" }}
+{{- end }}
+{{- if or .Values.admission.enable .Values.controllerManager.webhook.enable }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -6,17 +18,18 @@ metadata:
   labels: {{- toYaml . | nindent 4 }}
   {{- end }}
   name: kubeedge-admission-service
+  namespace: {{ .Release.Namespace }}
 spec:
   ports:
     - port: 443
       protocol: TCP
-      {{- if and .Values.controllerManager.enable (gt (int .Values.controllerManager.webhook.port) 0) }}
+      {{- if .Values.controllerManager.webhook.enable }}
       targetPort: {{ .Values.controllerManager.webhook.port }}
       {{- else }}
       targetPort: 443
       {{- end }}
   selector:
-  {{- if and .Values.controllerManager.enable (gt (int .Values.controllerManager.webhook.port) 0) }}
+  {{- if .Values.controllerManager.webhook.enable }}
   {{- with .Values.controllerManager.labels }}
   {{- toYaml . | nindent 4 }}
   {{- end }}

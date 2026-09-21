@@ -28,25 +28,43 @@ spec:
         - name: controller-manager
           image: {{ .Values.controllerManager.image.repository }}:{{ .Values.controllerManager.image.tag }}
           imagePullPolicy: {{ .Values.controllerManager.image.pullPolicy }}
-          {{- if gt (int .Values.controllerManager.webhook.port) 0 }}
           args:
+            - --health-probe-bind-address=:9001
+          {{- if .Values.controllerManager.webhook.enable }}
             - --webhook-port={{ .Values.controllerManager.webhook.port }}
             - --webhook-cert-dir={{ .Values.controllerManager.webhook.certDir }}
+          {{- end }}
           ports:
+            - name: healthz
+              containerPort: 9001
+              protocol: TCP
+          {{- if .Values.controllerManager.webhook.enable }}
             - name: webhook
               containerPort: {{ .Values.controllerManager.webhook.port }}
               protocol: TCP
-          {{- if .Values.controllerManager.webhook.certsSecretName }}
+          {{- end }}
+          {{- if and .Values.controllerManager.webhook.enable .Values.controllerManager.webhook.certsSecretName }}
           volumeMounts:
             - name: webhook-certs
               mountPath: {{ .Values.controllerManager.webhook.certDir }}
               readOnly: true
           {{- end }}
-          {{- end }}
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: healthz
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: healthz
+            initialDelaySeconds: 5
+            periodSeconds: 10
           {{- with .Values.controllerManager.resources }}
           resources: {{ toYaml . | nindent 12 }}
           {{- end }}
-      {{- if and (gt (int .Values.controllerManager.webhook.port) 0) .Values.controllerManager.webhook.certsSecretName }}
+      {{- if and .Values.controllerManager.webhook.enable .Values.controllerManager.webhook.certsSecretName }}
       volumes:
         - name: webhook-certs
           secret:

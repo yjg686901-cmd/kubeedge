@@ -55,6 +55,38 @@ helm upgrade --install cloudcore ./cloudcore --namespace kubeedge --create-names
 - `iptablesManager.affinity`, `iptablesManager.nodeSelector`, `iptablesManager.tolerations`, defines the node scheduling policies.
 - `iptablesManager.resources`, defines the resources limits and requests.
 
+### Controller manager admission webhooks
+
+The controller manager can serve all five validating and two mutating admission
+webhooks. Store a serving certificate and key in a TLS Secret before enabling the
+webhook. The certificate must include
+`kubeedge-admission-service.<namespace>.svc` in its DNS names.
+
+```bash
+kubectl -n kubeedge create secret tls kubeedge-webhook-certs \
+  --cert=tls.crt \
+  --key=tls.key
+
+helm upgrade --install cloudcore ./cloudcore \
+  --namespace kubeedge \
+  --set controllerManager.enable=true \
+  --set controllerManager.webhook.enable=true \
+  --set controllerManager.webhook.certsSecretName=kubeedge-webhook-certs \
+  --set-string controllerManager.webhook.caBundle="$(base64 -w0 ca.crt)"
+```
+
+`controllerManager.webhook.caBundle` is the base64 encoded CA certificate used
+to sign the serving certificate. The chart rejects webhook deployments without
+the Secret name or CA bundle. It also rejects enabling the legacy Admission
+Deployment and the controller manager webhook at the same time because both use
+`kubeedge-admission-service`.
+
+For rollback, upgrade the release with
+`controllerManager.webhook.enable=false` and `admission.enable=true`. This moves
+the Service selector and port back to the legacy Deployment in one Helm release.
+Keep the legacy image available until the controller manager webhook has passed
+the full admission regression suite in the target cluster.
+
 ## Uninstall
 
 ```
