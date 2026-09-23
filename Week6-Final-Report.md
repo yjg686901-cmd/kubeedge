@@ -3,9 +3,47 @@
 > 日期：2026-09-23
 > 范围：旧组件清理、文档收口、CI/生成检查、全量回归
 
+## 0. 项目版本与目录说明
+
+### 0.1 版本矩阵
+
+| 项目 | 当前版本或状态 |
+| --- | --- |
+| Go | 1.25.13 |
+| Kubernetes Go 依赖 | v0.32.10；KubeEdge replace 模块为 v1.32.10-kubeedge1 |
+| Kubernetes 主模块 | v1.32.10 |
+| controller-runtime | v0.20.4 |
+| controller-gen | v0.17.3 |
+| Envtest | Kubernetes 1.32.0 |
+| Helm 客户端 | v3.17.3 |
+| 实际测试集群 | Kubernetes v1.28.13 |
+| CloudCore 镜像 | `docker.io/kubeedge/cloudcore:v1.19.2-runtimeclass-20260812` |
+| Controller Manager 镜像 | `docker.io/kubeedge/controller-manager:week5-go1.25.13` |
+| Git 分支 | `week6/final-cleanup` |
+| Git 提交 | `aacc684fd21d1d9ec001008c5d64f4f3decce8cd` |
+
+### 0.2 主要目录内容
+
+| 路径 | 内容 |
+| --- | --- |
+| `cloud/cmd/controllermanager` | 统一 Controller Manager 程序入口、选项和 Manager 启动逻辑 |
+| `cloud/pkg/admissioncontroller` | 5 个 Validating、2 个 Mutating Handler 及统一注册适配层 |
+| `cloud/pkg/controllermanager` | Reconcile Controller、Leader Election 和业务控制器 |
+| `cloud/test/integration/controllermanager` | Envtest、TLS 路由、API Server Admission 集成测试 |
+| `build/controllermanager` | Controller Manager 镜像和最小 RBAC 构建资源 |
+| `manifests/charts/cloudcore` | Deployment、Service、WebhookConfiguration、证书挂载及 Helm values |
+| `hack` | 证书生成、Chart 验证、E2E、代码生成和发布脚本 |
+| `.github/workflows` | Controller Manager Webhook 和发布 CI 工作流 |
+| `admission-baseline` | 旧/新行为对照用 fixtures、cases 和配置快照，不是运行组件 |
+| `week5-test-evidence` | 第五周 Envtest、Helm 等原始测试日志 |
+| `week6-test-evidence` | 第六周本地回归、集群状态和 Helm 历史证据 |
+| `docs` | 架构、安装、升级、回滚、故障排查和贡献者指南 |
+
+独立运行入口 `cloud/cmd/admission` 和部署目录 `build/admission` 已删除。业务 Handler 目录 `cloud/pkg/admissioncontroller` 必须保留，因为统一 Controller Manager 仍调用其中的七个 Handler。
+
 ## 1. 当前结论
 
-第六周代码清理、文档和本地/实际集群回归已完成。统一组件已完成升级、回滚和再次升级。远端 CI 仍需在分支推送后产生运行链接，不影响当前本地与集群验收结论。
+第六周代码清理、文档和本地/实际集群回归已完成。统一组件已完成升级、回滚和再次升级。代码已推送到 `week6/final-cleanup`；远端 CI 已触发，但因 GitHub 账户 Billing 锁定而未启动任务，不影响当前本地与集群验收结论。
 
 ## 2. 已完成的清理
 
@@ -84,6 +122,6 @@ helm -n kubeedge rollback cloudcore REVISION --wait=false
 - [x] Helm 是 WebhookConfiguration 的唯一管理者。
 - [x] 本轮本地与生成检查全部通过。
 - [x] 实际集群统一版本升级、回滚、再次升级通过。
-- [ ] 远端 CI 有成功运行链接。
+- [ ] 远端 CI 有成功运行链接；当前运行 `35838530513` 因 GitHub Billing 锁定未启动。
 
-远端 CI 链接只有在分支推送并触发 GitHub Actions 后才能形成；本地同等检查结果与远端 CI 状态分别记录，不能用本地结果替代远端记录。
+远端 CI 记录：https://github.com/yjg686901-cmd/kubeedge/actions/runs/35838530513 。解除账户 Billing 限制后需重新运行。本地同等检查结果与远端 CI 状态分别记录，不能用本地结果替代远端记录。
