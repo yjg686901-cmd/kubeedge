@@ -1,0 +1,28 @@
+2026-09-23T16:11:50+08:00
+go version go1.25.13 linux/amd64
+== unit ==
+ok  	github.com/kubeedge/kubeedge/cloud/pkg/admissioncontroller	(cached)
+?   	github.com/kubeedge/kubeedge/cloud/pkg/controllermanager	[no test files]
+?   	github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/commons	[no test files]
+?   	github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/edgeapplication	[no test files]
+?   	github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/edgeapplication/constants	[no test files]
+ok  	github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/edgeapplication/overridemanager	(cached)
+?   	github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/edgeapplication/overridemanager/imageparser	[no test files]
+?   	github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/edgeapplication/statusmanager	[no test files]
+?   	github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/edgeapplication/utils	[no test files]
+ok  	github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/nodegroup	(cached)
+ok  	github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/nodetask	(cached)
+== race ==
+ok  	github.com/kubeedge/kubeedge/cloud/pkg/admissioncontroller	(cached)
+ok  	github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/nodegroup	(cached)
+ok  	github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/nodetask	(cached)
+== vet ==
+vet=passed
+== chart ==
+==> Linting /home/ubuntu/kubeedge-week4-test/manifests/charts/cloudcore
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+controller-manager-only webhook chart verification passed
+== cleanup ==
+cleanup=passed

@@ -1,0 +1,840 @@
+=== RUN   TestAppsAPIs
+Running Suite: NodeGroup Test Suite - /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager
+===============================================================================================================
+Random Seed: [1m1789985599[0m
+
+Will run [1m37[0m of [1m37[0m specs
+E0921 18:13:22.862125 1872806 statusmanager.go:206] failed to list EdgeApplication, the cache is not started, can not read objects
+I0921 18:13:24.975416 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-7537f4ed-3827-41e9-bdd8-7fbf7018c6c6
+I0921 18:13:24.981822 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-7537f4ed-3827-41e9-bdd8-7fbf7018c6c6
+[38;5;10m•[0mI0921 18:13:25.987775 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-7537f4ed-3827-41e9-bdd8-7fbf7018c6c6
+I0921 18:13:25.987811 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-7537f4ed-3827-41e9-bdd8-7fbf7018c6c6
+I0921 18:13:25.993780 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-7537f4ed-3827-41e9-bdd8-7fbf7018c6c6
+I0921 18:13:25.995734 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-215a628c-4d65-4ec4-bd1c-21865d07a567
+I0921 18:13:26.012290 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-215a628c-4d65-4ec4-bd1c-21865d07a567
+I0921 18:13:27.007960 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-215a628c-4d65-4ec4-bd1c-21865d07a567
+I0921 18:13:27.008019 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-215a628c-4d65-4ec4-bd1c-21865d07a567
+I0921 18:13:27.019355 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-215a628c-4d65-4ec4-bd1c-21865d07a567
+I0921 18:13:27.019394 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-215a628c-4d65-4ec4-bd1c-21865d07a567
+E0921 18:13:27.022992 1872806 nodegroupcontroller.go:252] failed to remove finalizer on nodegroup location1-215a628c-4d65-4ec4-bd1c-21865d07a567, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-215a628c-4d65-4ec4-bd1c-21865d07a567": StorageError: invalid object, Code: 4, Key: /registry/apps.kubeedge.io/nodegroups/location1-215a628c-4d65-4ec4-bd1c-21865d07a567, ResourceVersion: 0, AdditionalErrorMsg: Precondition failed: UID in precondition: a5a5e23b-e624-40fa-8310-b36aa4001e7c, UID in object meta: 
+I0921 18:13:27.023139 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-215a628c-4d65-4ec4-bd1c-21865d07a567
+I0921 18:13:27.028408 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-215a628c-4d65-4ec4-bd1c-21865d07a567
+[38;5;10m•[0mI0921 18:13:28.029767 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2e97dfe7-3424-411e-a2c2-862886269da9
+I0921 18:13:28.039555 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2e97dfe7-3424-411e-a2c2-862886269da9
+I0921 18:13:28.039639 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2e97dfe7-3424-411e-a2c2-862886269da9
+I0921 18:13:29.043918 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2e97dfe7-3424-411e-a2c2-862886269da9
+I0921 18:13:29.052993 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2e97dfe7-3424-411e-a2c2-862886269da9
+E0921 18:13:29.058014 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-2e97dfe7-3424-411e-a2c2-862886269da9, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-2e97dfe7-3424-411e-a2c2-862886269da9": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:29.058155 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2e97dfe7-3424-411e-a2c2-862886269da9
+I0921 18:13:29.063426 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2e97dfe7-3424-411e-a2c2-862886269da9
+I0921 18:13:30.058923 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2e97dfe7-3424-411e-a2c2-862886269da9
+I0921 18:13:30.058962 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-2e97dfe7-3424-411e-a2c2-862886269da9
+E0921 18:13:30.064498 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-2e97dfe7-3424-411e-a2c2-862886269da9 on node node1-2e97dfe7-3424-411e-a2c2-862886269da9, nodes "node1-2e97dfe7-3424-411e-a2c2-862886269da9" not found
+[38;5;10m•[0mE0921 18:13:30.070097 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-2e97dfe7-3424-411e-a2c2-862886269da9 on node node2-2e97dfe7-3424-411e-a2c2-862886269da9, nodes "node2-2e97dfe7-3424-411e-a2c2-862886269da9" not found
+I0921 18:13:30.070201 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2e97dfe7-3424-411e-a2c2-862886269da9
+I0921 18:13:30.070231 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-2e97dfe7-3424-411e-a2c2-862886269da9
+I0921 18:13:30.076229 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2e97dfe7-3424-411e-a2c2-862886269da9
+I0921 18:13:30.076261 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-2e97dfe7-3424-411e-a2c2-862886269da9
+E0921 18:13:30.078820 1872806 nodegroupcontroller.go:252] failed to remove finalizer on nodegroup location1-2e97dfe7-3424-411e-a2c2-862886269da9, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-2e97dfe7-3424-411e-a2c2-862886269da9": StorageError: invalid object, Code: 4, Key: /registry/apps.kubeedge.io/nodegroups/location1-2e97dfe7-3424-411e-a2c2-862886269da9, ResourceVersion: 0, AdditionalErrorMsg: Precondition failed: UID in precondition: 46b77084-de39-4f03-a9a3-14c711918837, UID in object meta: 
+I0921 18:13:30.078896 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-559ceea7-b505-45c1-bf76-d5a6a827290e
+I0921 18:13:30.091323 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2e97dfe7-3424-411e-a2c2-862886269da9
+I0921 18:13:30.091385 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-559ceea7-b505-45c1-bf76-d5a6a827290e
+I0921 18:13:31.099233 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-559ceea7-b505-45c1-bf76-d5a6a827290e
+I0921 18:13:31.113145 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-559ceea7-b505-45c1-bf76-d5a6a827290e
+I0921 18:13:32.115602 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-559ceea7-b505-45c1-bf76-d5a6a827290e
+I0921 18:13:32.115641 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-559ceea7-b505-45c1-bf76-d5a6a827290e
+I0921 18:13:32.122030 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-559ceea7-b505-45c1-bf76-d5a6a827290e
+[38;5;10m•[0mI0921 18:13:32.133009 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-5c8509d2-e8e2-4e09-817c-5704a9d76416
+I0921 18:13:32.148242 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-5c8509d2-e8e2-4e09-817c-5704a9d76416
+E0921 18:13:32.152666 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-5c8509d2-e8e2-4e09-817c-5704a9d76416, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-5c8509d2-e8e2-4e09-817c-5704a9d76416": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:32.152729 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-5c8509d2-e8e2-4e09-817c-5704a9d76416
+I0921 18:13:32.158016 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-5c8509d2-e8e2-4e09-817c-5704a9d76416
+I0921 18:13:33.140096 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-5c8509d2-e8e2-4e09-817c-5704a9d76416
+I0921 18:13:33.140107 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-5c8509d2-e8e2-4e09-817c-5704a9d76416
+E0921 18:13:33.140859 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-5c8509d2-e8e2-4e09-817c-5704a9d76416 on node node1-5c8509d2-e8e2-4e09-817c-5704a9d76416, nodes "node1-5c8509d2-e8e2-4e09-817c-5704a9d76416" not found
+I0921 18:13:33.140883 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-5c8509d2-e8e2-4e09-817c-5704a9d76416
+I0921 18:13:33.140888 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-5c8509d2-e8e2-4e09-817c-5704a9d76416
+[38;5;10m•[0mI0921 18:13:33.142039 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-5c8509d2-e8e2-4e09-817c-5704a9d76416
+I0921 18:13:33.143378 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7
+I0921 18:13:33.146437 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7
+E0921 18:13:33.147138 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-fac67077-60bf-4e93-8e77-dbf1999f26a7": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:33.147155 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-5c8509d2-e8e2-4e09-817c-5704a9d76416
+I0921 18:13:33.147165 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7
+I0921 18:13:33.152311 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7
+I0921 18:13:34.156068 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7
+I0921 18:13:34.161281 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7
+I0921 18:13:35.167885 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7
+I0921 18:13:35.167929 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7
+E0921 18:13:35.172011 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7 on node node1-fac67077-60bf-4e93-8e77-dbf1999f26a7, nodes "node1-fac67077-60bf-4e93-8e77-dbf1999f26a7" not found
+I0921 18:13:35.172182 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7
+I0921 18:13:35.172233 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7
+[38;5;10m•[0mI0921 18:13:35.177722 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7
+I0921 18:13:35.177780 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7
+E0921 18:13:35.181517 1872806 nodegroupcontroller.go:252] failed to remove finalizer on nodegroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-fac67077-60bf-4e93-8e77-dbf1999f26a7": StorageError: invalid object, Code: 4, Key: /registry/apps.kubeedge.io/nodegroups/location1-fac67077-60bf-4e93-8e77-dbf1999f26a7, ResourceVersion: 0, AdditionalErrorMsg: Precondition failed: UID in precondition: ea9c3462-ddd5-4bc3-ac9e-08f971969f5b, UID in object meta: 
+I0921 18:13:35.181586 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7
+I0921 18:13:35.186648 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-fac67077-60bf-4e93-8e77-dbf1999f26a7
+I0921 18:13:35.191610 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-d3b055c8-beed-428e-9fc4-3e2cf066685e
+I0921 18:13:35.207797 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-d3b055c8-beed-428e-9fc4-3e2cf066685e
+I0921 18:13:35.207991 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-d3b055c8-beed-428e-9fc4-3e2cf066685e
+I0921 18:13:36.208587 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-d3b055c8-beed-428e-9fc4-3e2cf066685e
+I0921 18:13:36.208644 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-d3b055c8-beed-428e-9fc4-3e2cf066685e
+E0921 18:13:36.215546 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-d3b055c8-beed-428e-9fc4-3e2cf066685e on node node3-d3b055c8-beed-428e-9fc4-3e2cf066685e, nodes "node3-d3b055c8-beed-428e-9fc4-3e2cf066685e" not found
+I0921 18:13:36.215703 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-d3b055c8-beed-428e-9fc4-3e2cf066685e
+I0921 18:13:36.215745 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-d3b055c8-beed-428e-9fc4-3e2cf066685e
+[38;5;10m•[0mI0921 18:13:36.222776 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-d3b055c8-beed-428e-9fc4-3e2cf066685e
+I0921 18:13:36.222822 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-d3b055c8-beed-428e-9fc4-3e2cf066685e
+E0921 18:13:36.225864 1872806 nodegroupcontroller.go:252] failed to remove finalizer on nodegroup location1-d3b055c8-beed-428e-9fc4-3e2cf066685e, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-d3b055c8-beed-428e-9fc4-3e2cf066685e": StorageError: invalid object, Code: 4, Key: /registry/apps.kubeedge.io/nodegroups/location1-d3b055c8-beed-428e-9fc4-3e2cf066685e, ResourceVersion: 0, AdditionalErrorMsg: Precondition failed: UID in precondition: 4c4d4cab-e298-431d-9403-34dbd3aa0532, UID in object meta: 
+I0921 18:13:36.225941 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-d3b055c8-beed-428e-9fc4-3e2cf066685e
+I0921 18:13:36.231157 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-d3b055c8-beed-428e-9fc4-3e2cf066685e
+I0921 18:13:36.234670 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2
+I0921 18:13:36.253741 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2
+I0921 18:13:36.253833 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2
+I0921 18:13:37.251674 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2
+I0921 18:13:37.251715 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2
+E0921 18:13:37.255576 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2 on node node3-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2, nodes "node3-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2" not found
+I0921 18:13:37.259397 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2
+I0921 18:13:37.259428 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2
+[38;5;10m•[0mI0921 18:13:37.265264 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2
+I0921 18:13:37.265294 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2
+E0921 18:13:37.268481 1872806 nodegroupcontroller.go:252] failed to remove finalizer on nodegroup location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2": StorageError: invalid object, Code: 4, Key: /registry/apps.kubeedge.io/nodegroups/location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2, ResourceVersion: 0, AdditionalErrorMsg: Precondition failed: UID in precondition: 0be07065-f235-49e4-8f93-b9f6537bc3de, UID in object meta: 
+I0921 18:13:37.268582 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2
+I0921 18:13:37.274494 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-baec3a78-4ac1-4cff-b59c-0f1a0c28daa2
+I0921 18:13:37.284577 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2aa82bfd-0eed-4420-b84d-d775c9af1f9c
+I0921 18:13:37.297107 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2aa82bfd-0eed-4420-b84d-d775c9af1f9c
+I0921 18:13:38.294811 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2aa82bfd-0eed-4420-b84d-d775c9af1f9c
+I0921 18:13:38.294824 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-2aa82bfd-0eed-4420-b84d-d775c9af1f9c
+E0921 18:13:38.296164 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-2aa82bfd-0eed-4420-b84d-d775c9af1f9c on node node3-2aa82bfd-0eed-4420-b84d-d775c9af1f9c, nodes "node3-2aa82bfd-0eed-4420-b84d-d775c9af1f9c" not found
+I0921 18:13:38.296207 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2aa82bfd-0eed-4420-b84d-d775c9af1f9c
+I0921 18:13:38.296218 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-2aa82bfd-0eed-4420-b84d-d775c9af1f9c
+I0921 18:13:38.298413 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2aa82bfd-0eed-4420-b84d-d775c9af1f9c
+[38;5;10m•[0mI0921 18:13:38.301549 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-2aa82bfd-0eed-4420-b84d-d775c9af1f9c
+I0921 18:13:38.303400 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1a3003e0-0793-49cb-809c-446fd8937702
+I0921 18:13:38.314709 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1a3003e0-0793-49cb-809c-446fd8937702
+E0921 18:13:38.315469 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-1a3003e0-0793-49cb-809c-446fd8937702, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-1a3003e0-0793-49cb-809c-446fd8937702": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:38.315485 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1a3003e0-0793-49cb-809c-446fd8937702
+I0921 18:13:38.320679 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1a3003e0-0793-49cb-809c-446fd8937702
+I0921 18:13:39.337541 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1a3003e0-0793-49cb-809c-446fd8937702
+I0921 18:13:39.337589 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-1a3003e0-0793-49cb-809c-446fd8937702
+E0921 18:13:39.341521 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-1a3003e0-0793-49cb-809c-446fd8937702 on node node3-1a3003e0-0793-49cb-809c-446fd8937702, nodes "node3-1a3003e0-0793-49cb-809c-446fd8937702" not found
+E0921 18:13:39.345528 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-1a3003e0-0793-49cb-809c-446fd8937702 on node node4-1a3003e0-0793-49cb-809c-446fd8937702, nodes "node4-1a3003e0-0793-49cb-809c-446fd8937702" not found
+E0921 18:13:39.349259 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-1a3003e0-0793-49cb-809c-446fd8937702 on node node1-1a3003e0-0793-49cb-809c-446fd8937702, nodes "node1-1a3003e0-0793-49cb-809c-446fd8937702" not found
+[38;5;10m•[0mE0921 18:13:39.352286 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-1a3003e0-0793-49cb-809c-446fd8937702 on node node2-1a3003e0-0793-49cb-809c-446fd8937702, nodes "node2-1a3003e0-0793-49cb-809c-446fd8937702" not found
+I0921 18:13:39.352444 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1a3003e0-0793-49cb-809c-446fd8937702
+I0921 18:13:39.352475 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-1a3003e0-0793-49cb-809c-446fd8937702
+I0921 18:13:39.359096 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1a3003e0-0793-49cb-809c-446fd8937702
+I0921 18:13:39.364601 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8a97d585-6698-495a-9943-d00e2a8ebe2c
+I0921 18:13:39.386441 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8a97d585-6698-495a-9943-d00e2a8ebe2c
+E0921 18:13:39.391844 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-8a97d585-6698-495a-9943-d00e2a8ebe2c, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-8a97d585-6698-495a-9943-d00e2a8ebe2c": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:39.391912 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8a97d585-6698-495a-9943-d00e2a8ebe2c
+I0921 18:13:39.397284 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8a97d585-6698-495a-9943-d00e2a8ebe2c
+I0921 18:13:40.375939 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8a97d585-6698-495a-9943-d00e2a8ebe2c
+I0921 18:13:40.375956 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-8a97d585-6698-495a-9943-d00e2a8ebe2c
+E0921 18:13:40.379368 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-8a97d585-6698-495a-9943-d00e2a8ebe2c on node node3-8a97d585-6698-495a-9943-d00e2a8ebe2c, nodes "node3-8a97d585-6698-495a-9943-d00e2a8ebe2c" not found
+I0921 18:13:40.379466 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8a97d585-6698-495a-9943-d00e2a8ebe2c
+I0921 18:13:40.379493 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-8a97d585-6698-495a-9943-d00e2a8ebe2c
+[38;5;10m•[0mI0921 18:13:40.384347 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8a97d585-6698-495a-9943-d00e2a8ebe2c
+I0921 18:13:40.385164 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8a97d585-6698-495a-9943-d00e2a8ebe2c
+I0921 18:13:40.390400 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-a4d43584-8058-4db0-8cc4-659a1ebbe2e9
+E0921 18:13:40.391904 1872806 nodegroupcontroller.go:348] failed to get node non-existing-node, Node "non-existing-node" not found
+E0921 18:13:40.391915 1872806 nodegroupcontroller.go:269] failed to get all nodes specified in the NodeGroup.Spec.Nodes, Node "non-existing-node" not found.
+E0921 18:13:40.391921 1872806 nodegroupcontroller.go:114] failed to get all new nodes, Node "non-existing-node" not found, continue with what have found.
+I0921 18:13:40.392995 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-a4d43584-8058-4db0-8cc4-659a1ebbe2e9
+E0921 18:13:40.393008 1872806 nodegroupcontroller.go:348] failed to get node non-existing-node, Node "non-existing-node" not found
+E0921 18:13:40.393013 1872806 nodegroupcontroller.go:269] failed to get all nodes specified in the NodeGroup.Spec.Nodes, Node "non-existing-node" not found.
+E0921 18:13:40.393017 1872806 nodegroupcontroller.go:114] failed to get all new nodes, Node "non-existing-node" not found, continue with what have found.
+I0921 18:13:40.393035 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-a4d43584-8058-4db0-8cc4-659a1ebbe2e9
+E0921 18:13:40.393042 1872806 nodegroupcontroller.go:348] failed to get node non-existing-node, Node "non-existing-node" not found
+E0921 18:13:40.393046 1872806 nodegroupcontroller.go:269] failed to get all nodes specified in the NodeGroup.Spec.Nodes, Node "non-existing-node" not found.
+E0921 18:13:40.393048 1872806 nodegroupcontroller.go:114] failed to get all new nodes, Node "non-existing-node" not found, continue with what have found.
+I0921 18:13:41.401580 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-a4d43584-8058-4db0-8cc4-659a1ebbe2e9
+I0921 18:13:41.401620 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-a4d43584-8058-4db0-8cc4-659a1ebbe2e9
+I0921 18:13:41.407527 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-a4d43584-8058-4db0-8cc4-659a1ebbe2e9
+I0921 18:13:41.407610 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-a4d43584-8058-4db0-8cc4-659a1ebbe2e9
+[38;5;10m•[0mI0921 18:13:41.432047 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+I0921 18:13:41.449093 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+E0921 18:13:41.452498 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:41.452594 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+I0921 18:13:41.458118 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+I0921 18:13:42.453642 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+E0921 18:13:42.458891 1872806 nodegroupcontroller.go:151] failed to update belonging label for node node1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 in nodegroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, node node1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 has already belonged to NodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, continue to reconcile other nodes
+I0921 18:13:42.463599 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+E0921 18:13:42.463737 1872806 nodegroupcontroller.go:151] failed to update belonging label for node node1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 in nodegroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, node node1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 has already belonged to NodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, continue to reconcile other nodes
+E0921 18:13:42.467254 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:42.467326 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+E0921 18:13:42.467422 1872806 nodegroupcontroller.go:151] failed to update belonging label for node node1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 in nodegroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, node node1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 has already belonged to NodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, continue to reconcile other nodes
+I0921 18:13:42.472975 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+E0921 18:13:42.473123 1872806 nodegroupcontroller.go:151] failed to update belonging label for node node1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 in nodegroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, node node1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 has already belonged to NodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, continue to reconcile other nodes
+I0921 18:13:43.468454 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+E0921 18:13:43.468567 1872806 nodegroupcontroller.go:151] failed to update belonging label for node node1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 in nodegroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, node node1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 has already belonged to NodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, continue to reconcile other nodes
+E0921 18:13:43.468587 1872806 nodegroupcontroller.go:151] failed to update belonging label for node node3-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 in nodegroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, node node3-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 has already belonged to NodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, continue to reconcile other nodes
+I0921 18:13:43.473316 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+E0921 18:13:43.473487 1872806 nodegroupcontroller.go:151] failed to update belonging label for node node1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 in nodegroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, node node1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 has already belonged to NodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, continue to reconcile other nodes
+E0921 18:13:43.473515 1872806 nodegroupcontroller.go:151] failed to update belonging label for node node3-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 in nodegroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, node node3-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 has already belonged to NodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, continue to reconcile other nodes
+I0921 18:13:43.483626 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+I0921 18:13:43.483685 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+I0921 18:13:43.490184 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+I0921 18:13:43.490231 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+E0921 18:13:43.496501 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962 on node node3-1c351fe0-e950-4a46-96d0-d9b7f0fc8962, nodes "node3-1c351fe0-e950-4a46-96d0-d9b7f0fc8962" not found
+I0921 18:13:43.496629 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+I0921 18:13:43.496680 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+I0921 18:13:43.496708 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+[38;5;10m•[0mI0921 18:13:43.502276 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1c351fe0-e950-4a46-96d0-d9b7f0fc8962
+I0921 18:13:43.512229 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c
+I0921 18:13:43.524687 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c
+E0921 18:13:43.529712 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:43.529806 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c
+I0921 18:13:43.535057 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c
+I0921 18:13:44.528810 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c
+I0921 18:13:44.538004 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c
+E0921 18:13:44.542968 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:44.543076 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c
+I0921 18:13:44.548575 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c
+I0921 18:13:45.541592 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c
+I0921 18:13:45.541650 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c
+[38;5;10m•[0mI0921 18:13:45.549161 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c
+I0921 18:13:45.549236 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-24eb8fed-ee8d-4edf-8cf3-094210f1fa1c
+I0921 18:13:45.558772 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061
+I0921 18:13:45.571158 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061
+I0921 18:13:45.571275 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061
+I0921 18:13:46.569805 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061
+I0921 18:13:46.577133 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061
+E0921 18:13:46.580245 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:46.580315 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061
+I0921 18:13:46.585550 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061
+I0921 18:13:47.589796 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061
+I0921 18:13:47.589834 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061
+E0921 18:13:47.593958 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061 on node node1-9e3c8efe-d40d-420f-ad91-43cd6cec8061, nodes "node1-9e3c8efe-d40d-420f-ad91-43cd6cec8061" not found
+[38;5;10m•[0mE0921 18:13:47.598900 1872806 nodegroupcontroller.go:209] failed to remove belonging label of nodegroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061 on node node2-9e3c8efe-d40d-420f-ad91-43cd6cec8061, nodes "node2-9e3c8efe-d40d-420f-ad91-43cd6cec8061" not found
+I0921 18:13:47.599094 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061
+I0921 18:13:47.599154 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061
+I0921 18:13:47.606576 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9e3c8efe-d40d-420f-ad91-43cd6cec8061
+I0921 18:13:47.610052 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-6cd46075-a56e-4e6a-bc90-a284022a2547
+I0921 18:13:47.624627 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-6cd46075-a56e-4e6a-bc90-a284022a2547
+I0921 18:13:48.625400 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-6cd46075-a56e-4e6a-bc90-a284022a2547
+I0921 18:13:48.639071 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-6cd46075-a56e-4e6a-bc90-a284022a2547
+I0921 18:13:48.639188 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-6cd46075-a56e-4e6a-bc90-a284022a2547
+[controller-runtime] log.SetLogger(...) was never called; logs will not be displayed.
+Detected at:
+	>  goroutine 468 [running]:
+	>  runtime/debug.Stack()
+	>  	/home/ubuntu/.local/go1.23.12/src/runtime/debug/stack.go:26 +0x5e
+	>  sigs.k8s.io/controller-runtime/pkg/log.eventuallyFulfillRoot()
+	>  	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/log/log.go:60 +0xcd
+	>  sigs.k8s.io/controller-runtime/pkg/log.(*delegatingLogSink).WithValues(0xc000e15900, {0xc000c76de0, 0x2, 0x2})
+	>  	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/log/deleg.go:168 +0x49
+	>  github.com/go-logr/logr.Logger.WithValues(...)
+	>  	/home/ubuntu/kubeedge-week4-test/vendor/github.com/go-logr/logr/logr.go:332
+	>  sigs.k8s.io/controller-runtime/pkg/builder.(*TypedBuilder[...]).doController.func1()
+	>  	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/builder/controller.go:449 +0x1b3
+	>  sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller[...]).reconcileHandler(0x205ddc0, {0x20461e0, 0xc0004963c0}, {{{0x0, 0x0}, {0xc000c33ec0, 0x2e}}}, 0x0)
+	>  	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/internal/controller/controller.go:324 +0x144
+	>  sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller[...]).processNextWorkItem(0x205ddc0, {0x20461e0, 0xc0004963c0})
+	>  	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/internal/controller/controller.go:294 +0x21e
+	>  sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller[...]).Start.func2.2()
+	>  	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/internal/controller/controller.go:255 +0x85
+	>  created by sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller[...]).Start.func2 in goroutine 360
+	>  	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/internal/controller/controller.go:251 +0x6b8
+I0921 18:13:49.644431 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-6cd46075-a56e-4e6a-bc90-a284022a2547
+I0921 18:13:49.644464 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-6cd46075-a56e-4e6a-bc90-a284022a2547
+[38;5;10m•[0mI0921 18:13:49.655188 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-6cd46075-a56e-4e6a-bc90-a284022a2547
+I0921 18:13:49.655220 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-6cd46075-a56e-4e6a-bc90-a284022a2547
+E0921 18:13:49.658590 1872806 nodegroupcontroller.go:252] failed to remove finalizer on nodegroup location1-6cd46075-a56e-4e6a-bc90-a284022a2547, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-6cd46075-a56e-4e6a-bc90-a284022a2547": StorageError: invalid object, Code: 4, Key: /registry/apps.kubeedge.io/nodegroups/location1-6cd46075-a56e-4e6a-bc90-a284022a2547, ResourceVersion: 0, AdditionalErrorMsg: Precondition failed: UID in precondition: c963a2c8-b70d-4881-94a7-b70e42e931e8, UID in object meta: 
+I0921 18:13:49.658657 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-6cd46075-a56e-4e6a-bc90-a284022a2547
+I0921 18:13:49.660562 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ff06e406-fb2e-42fa-a797-11086fc4db2f
+I0921 18:13:49.673398 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-6cd46075-a56e-4e6a-bc90-a284022a2547
+I0921 18:13:49.673438 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ff06e406-fb2e-42fa-a797-11086fc4db2f
+E0921 18:13:49.677539 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-ff06e406-fb2e-42fa-a797-11086fc4db2f, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-ff06e406-fb2e-42fa-a797-11086fc4db2f": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:49.677604 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ff06e406-fb2e-42fa-a797-11086fc4db2f
+I0921 18:13:49.682886 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ff06e406-fb2e-42fa-a797-11086fc4db2f
+I0921 18:13:50.674248 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ff06e406-fb2e-42fa-a797-11086fc4db2f
+I0921 18:13:50.684819 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ff06e406-fb2e-42fa-a797-11086fc4db2f
+I0921 18:13:51.679567 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ff06e406-fb2e-42fa-a797-11086fc4db2f
+I0921 18:13:51.679580 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-ff06e406-fb2e-42fa-a797-11086fc4db2f
+[38;5;10m•[0mI0921 18:13:51.680781 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ff06e406-fb2e-42fa-a797-11086fc4db2f
+I0921 18:13:51.680792 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-ff06e406-fb2e-42fa-a797-11086fc4db2f
+E0921 18:13:51.681375 1872806 nodegroupcontroller.go:252] failed to remove finalizer on nodegroup location1-ff06e406-fb2e-42fa-a797-11086fc4db2f, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-ff06e406-fb2e-42fa-a797-11086fc4db2f": StorageError: invalid object, Code: 4, Key: /registry/apps.kubeedge.io/nodegroups/location1-ff06e406-fb2e-42fa-a797-11086fc4db2f, ResourceVersion: 0, AdditionalErrorMsg: Precondition failed: UID in precondition: 760f054c-5fdb-43b3-bb95-4bb608d50b0a, UID in object meta: 
+I0921 18:13:51.681389 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ff06e406-fb2e-42fa-a797-11086fc4db2f
+I0921 18:13:51.682681 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-20200383-2070-45be-b741-5cd5c5c86037
+I0921 18:13:51.685218 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-20200383-2070-45be-b741-5cd5c5c86037
+E0921 18:13:51.686038 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-20200383-2070-45be-b741-5cd5c5c86037, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-20200383-2070-45be-b741-5cd5c5c86037": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:51.686050 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-20200383-2070-45be-b741-5cd5c5c86037
+I0921 18:13:51.687140 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ff06e406-fb2e-42fa-a797-11086fc4db2f
+I0921 18:13:51.691257 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-20200383-2070-45be-b741-5cd5c5c86037
+I0921 18:13:52.693102 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-20200383-2070-45be-b741-5cd5c5c86037
+E0921 18:13:52.701431 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-20200383-2070-45be-b741-5cd5c5c86037, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-20200383-2070-45be-b741-5cd5c5c86037": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:52.701498 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-20200383-2070-45be-b741-5cd5c5c86037
+I0921 18:13:52.711627 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-20200383-2070-45be-b741-5cd5c5c86037
+I0921 18:13:52.711771 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-20200383-2070-45be-b741-5cd5c5c86037
+I0921 18:13:53.711907 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-20200383-2070-45be-b741-5cd5c5c86037
+E0921 18:13:53.718444 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-20200383-2070-45be-b741-5cd5c5c86037, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-20200383-2070-45be-b741-5cd5c5c86037": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:53.718536 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-20200383-2070-45be-b741-5cd5c5c86037
+I0921 18:13:53.718575 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-20200383-2070-45be-b741-5cd5c5c86037
+[38;5;10m•[0mI0921 18:13:53.724299 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-20200383-2070-45be-b741-5cd5c5c86037
+I0921 18:13:53.724334 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-20200383-2070-45be-b741-5cd5c5c86037
+E0921 18:13:53.726835 1872806 nodegroupcontroller.go:252] failed to remove finalizer on nodegroup location1-20200383-2070-45be-b741-5cd5c5c86037, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-20200383-2070-45be-b741-5cd5c5c86037": StorageError: invalid object, Code: 4, Key: /registry/apps.kubeedge.io/nodegroups/location1-20200383-2070-45be-b741-5cd5c5c86037, ResourceVersion: 0, AdditionalErrorMsg: Precondition failed: UID in precondition: 81543d37-81c8-443a-80a8-5364dbfb8d3c, UID in object meta: 
+I0921 18:13:53.726895 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-20200383-2070-45be-b741-5cd5c5c86037
+I0921 18:13:53.732854 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-20200383-2070-45be-b741-5cd5c5c86037
+I0921 18:13:53.733842 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b320ab25-e642-42dd-8c86-f29efdfc10a7
+I0921 18:13:53.747591 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b320ab25-e642-42dd-8c86-f29efdfc10a7
+I0921 18:13:54.756125 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b320ab25-e642-42dd-8c86-f29efdfc10a7
+I0921 18:13:54.770029 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b320ab25-e642-42dd-8c86-f29efdfc10a7
+I0921 18:13:55.776437 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b320ab25-e642-42dd-8c86-f29efdfc10a7
+E0921 18:13:55.782416 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-b320ab25-e642-42dd-8c86-f29efdfc10a7, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-b320ab25-e642-42dd-8c86-f29efdfc10a7": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:55.782482 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b320ab25-e642-42dd-8c86-f29efdfc10a7
+I0921 18:13:55.782512 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-b320ab25-e642-42dd-8c86-f29efdfc10a7
+[38;5;10m•[0mI0921 18:13:55.789775 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b320ab25-e642-42dd-8c86-f29efdfc10a7
+I0921 18:13:55.789808 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-b320ab25-e642-42dd-8c86-f29efdfc10a7
+E0921 18:13:55.792477 1872806 nodegroupcontroller.go:252] failed to remove finalizer on nodegroup location1-b320ab25-e642-42dd-8c86-f29efdfc10a7, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-b320ab25-e642-42dd-8c86-f29efdfc10a7": StorageError: invalid object, Code: 4, Key: /registry/apps.kubeedge.io/nodegroups/location1-b320ab25-e642-42dd-8c86-f29efdfc10a7, ResourceVersion: 0, AdditionalErrorMsg: Precondition failed: UID in precondition: 692c3e33-4876-4b0f-b44b-7ed859ec11b4, UID in object meta: 
+I0921 18:13:55.792522 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b320ab25-e642-42dd-8c86-f29efdfc10a7
+I0921 18:13:55.798441 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b320ab25-e642-42dd-8c86-f29efdfc10a7
+[38;5;10m•[0mI0921 18:13:55.820244 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-bb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:55.839095 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-bb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:55.854011 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-bb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:55.854160 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-bb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:55.862886 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:55.876858 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921 for annotation not existing, possibly it is a new-created edgeapp
+I0921 18:13:55.878634 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:55.880777 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921 for annotation not existing, possibly it is a new-created edgeapp
+I0921 18:13:55.882470 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:55.975035 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921
+E0921 18:13:55.977666 1872806 reconciler.go:85] failed to update status for edgeApp default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921, failed to update status of EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:13:55.977982 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921, failed to update status of EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:13:55.978980 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921, failed to update status of EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:55.979852 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:55.985443 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921
+E0921 18:13:55.986137 1872806 reconciler.go:85] failed to update status for edgeApp default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921, failed to update status of EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:13:55.986369 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921, failed to update status of EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:55.987671 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:55.991234 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:55.999688 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921
+E0921 18:13:56.000190 1872806 reconciler.go:85] failed to update status for edgeApp default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921, failed to update status of EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:56.002116 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.008015 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.030786 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.039659 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.058195 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appbb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.867859 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-bb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.869426 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-bb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.870671 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-bb0b0da5-96c1-4525-803b-bd3660a3d921
+E0921 18:13:56.871908 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-bb0b0da5-96c1-4525-803b-bd3660a3d921, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-bb0b0da5-96c1-4525-803b-bd3660a3d921": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:56.871925 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-bb0b0da5-96c1-4525-803b-bd3660a3d921
+[38;5;10m•[0mE0921 18:13:56.872737 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location2-bb0b0da5-96c1-4525-803b-bd3660a3d921, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location2-bb0b0da5-96c1-4525-803b-bd3660a3d921": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:56.872754 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-bb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.872762 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-bb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.874073 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-bb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.874089 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-bb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.875253 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-bb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.875264 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-bb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.875513 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:56.879040 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:56.882496 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-bb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.882506 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-bb0b0da5-96c1-4525-803b-bd3660a3d921
+I0921 18:13:56.882516 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:56.882553 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:56.890905 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:56.911730 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6 for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:13:56.913462 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6, failed to update status of EdgeApplication default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:56.916926 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6
+E0921 18:13:56.917852 1872806 reconciler.go:85] failed to update status for edgeApp default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6, failed to update status of EdgeApplication default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:13:56.918348 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6, failed to update status of EdgeApplication default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:13:56.924015 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6, failed to update status of EdgeApplication default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:56.927339 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:56.930732 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:56.938253 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:56.943276 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:56.957113 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:57.899031 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:57.904237 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:57.908959 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:57.914579 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:57.914617 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-639803c1-70a1-4fb1-a52a-c39c067e9ec6
+[38;5;10m•[0mI0921 18:13:57.923441 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:57.923496 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:57.929412 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:57.929487 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-639803c1-70a1-4fb1-a52a-c39c067e9ec6
+I0921 18:13:57.935662 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:57.952426 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:57.969371 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:57.969578 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+E0921 18:13:57.973278 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location2-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location2-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:57.973377 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:57.977207 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:57.978625 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.013966 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62 for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:13:58.017708 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62, failed to update status of EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:58.020749 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+E0921 18:13:58.021516 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62, failed to update status of EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:13:58.030165 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62, failed to update status of EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:13:58.032233 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62, failed to update status of EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:58.033431 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.044396 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+E0921 18:13:58.046679 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62, failed to update status of EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:58.049085 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.059751 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.076956 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.089283 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.109392 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.983191 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.984504 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.985874 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.986897 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.986905 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+[38;5;10m•[0mI0921 18:13:58.988029 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.988038 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.989178 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.989332 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-ef2f52dd-aa5f-4bd0-ab3c-ccd300406e62
+I0921 18:13:58.991149 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:13:58.995324 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:13:58.999056 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:13:58.999091 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:13:59.005608 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:13:59.015370 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56 for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:13:59.023762 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56, failed to update status of EdgeApplication default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:13:59.025132 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56, failed to update status of EdgeApplication default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:59.025207 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:13:59.031419 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+E0921 18:13:59.034498 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56, failed to update status of EdgeApplication default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:13:59.035991 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:13:59.048520 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:13:59.055982 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:13:59.070552 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:14:00.020803 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:14:00.052671 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:14:00.066689 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:14:01.033924 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:14:01.039340 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+E0921 18:14:01.045493 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:01.045580 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:14:01.050879 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+E0921 18:14:01.055502 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56": the object has been modified; please apply your changes to the latest version and try again
+[38;5;10m•[0mI0921 18:14:01.055572 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:14:01.055637 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:14:01.055653 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:14:01.062528 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:14:01.062560 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:14:01.067815 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:14:01.067920 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-804c8bcf-e2b3-4dc5-8a27-fcd0aea06d56
+I0921 18:14:01.071962 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:01.089254 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:01.105612 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:01.105735 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:01.105799 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:01.114531 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:01.145419 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:14:01.148143 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa, failed to update status of EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:01.150385 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa, failed to update status of EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:01.151628 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa
+E0921 18:14:01.162186 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa, failed to update status of EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:01.163801 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa, failed to update status of EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:01.167709 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa for annotation not existing, possibly it is a new-created edgeapp
+I0921 18:14:01.173795 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa
+E0921 18:14:01.181521 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa, failed to update status of EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:01.181786 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:01.194353 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:01.210712 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:01.220489 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:01.237849 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:02.130813 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:02.154149 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:03.135171 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:03.136487 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-157e7a2f-0bdf-4587-94cf-1035f74488aa
+E0921 18:14:03.137358 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-157e7a2f-0bdf-4587-94cf-1035f74488aa, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-157e7a2f-0bdf-4587-94cf-1035f74488aa": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:03.137370 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:03.138283 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:03.138295 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-157e7a2f-0bdf-4587-94cf-1035f74488aa
+[38;5;10m•[0mI0921 18:14:03.139320 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:03.139328 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:03.140469 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:03.140486 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:03.141896 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:03.145378 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-157e7a2f-0bdf-4587-94cf-1035f74488aa
+I0921 18:14:03.145391 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:03.148550 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:03.148574 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-49d1d442-361f-4d87-8359-678a08da89ff
+E0921 18:14:03.149317 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location2-49d1d442-361f-4d87-8359-678a08da89ff, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location2-49d1d442-361f-4d87-8359-678a08da89ff": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:03.149329 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:03.154724 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:03.156326 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:03.165057 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app49d1d442-361f-4d87-8359-678a08da89ff for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:14:03.166080 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app49d1d442-361f-4d87-8359-678a08da89ff, failed to update status of EdgeApplication default/edge-app49d1d442-361f-4d87-8359-678a08da89ff, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app49d1d442-361f-4d87-8359-678a08da89ff": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:03.167019 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app49d1d442-361f-4d87-8359-678a08da89ff, failed to update status of EdgeApplication default/edge-app49d1d442-361f-4d87-8359-678a08da89ff, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app49d1d442-361f-4d87-8359-678a08da89ff": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:03.168417 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app49d1d442-361f-4d87-8359-678a08da89ff
+E0921 18:14:03.169644 1872806 reconciler.go:85] failed to update status for edgeApp default/edge-app49d1d442-361f-4d87-8359-678a08da89ff, failed to update status of EdgeApplication default/edge-app49d1d442-361f-4d87-8359-678a08da89ff, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app49d1d442-361f-4d87-8359-678a08da89ff": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:03.173448 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app49d1d442-361f-4d87-8359-678a08da89ff, failed to update status of EdgeApplication default/edge-app49d1d442-361f-4d87-8359-678a08da89ff, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app49d1d442-361f-4d87-8359-678a08da89ff": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:03.174461 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app49d1d442-361f-4d87-8359-678a08da89ff for annotation not existing, possibly it is a new-created edgeapp
+I0921 18:14:03.177033 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:03.181679 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:03.186978 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:03.193299 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:03.203444 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:04.169542 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edgeapp49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:04.188922 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edgeapp49d1d442-361f-4d87-8359-678a08da89ff for annotation not existing, possibly it is a new-created edgeapp
+I0921 18:14:04.197740 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edgeapp49d1d442-361f-4d87-8359-678a08da89ff
+E0921 18:14:04.201047 1872806 reconciler.go:85] failed to update status for edgeApp default/edgeapp49d1d442-361f-4d87-8359-678a08da89ff, failed to update status of EdgeApplication default/edgeapp49d1d442-361f-4d87-8359-678a08da89ff, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edgeapp49d1d442-361f-4d87-8359-678a08da89ff": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:04.203092 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edgeapp49d1d442-361f-4d87-8359-678a08da89ff for annotation not existing, possibly it is a new-created edgeapp
+I0921 18:14:04.211348 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edgeapp49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:04.216355 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edgeapp49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:04.227247 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edgeapp49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:05.181955 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edgeapp49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:05.186127 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:05.191868 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:05.196805 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:05.201185 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:05.201217 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-49d1d442-361f-4d87-8359-678a08da89ff
+[38;5;10m•[0mI0921 18:14:05.213031 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:05.213056 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:05.216640 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:05.216893 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-49d1d442-361f-4d87-8359-678a08da89ff
+I0921 18:14:05.221065 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:05.230805 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:05.246398 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:05.246505 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:05.246724 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:05.284526 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0 for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:14:05.286552 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app102908d0-2c88-4d61-9682-31a1944632f0, failed to update status of EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app102908d0-2c88-4d61-9682-31a1944632f0": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:05.291489 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app102908d0-2c88-4d61-9682-31a1944632f0, failed to update status of EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app102908d0-2c88-4d61-9682-31a1944632f0": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:05.293643 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0
+E0921 18:14:05.294037 1872806 reconciler.go:85] failed to update status for edgeApp default/edge-app102908d0-2c88-4d61-9682-31a1944632f0, failed to update status of EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app102908d0-2c88-4d61-9682-31a1944632f0": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:05.299916 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app102908d0-2c88-4d61-9682-31a1944632f0, failed to update status of EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app102908d0-2c88-4d61-9682-31a1944632f0": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:05.303274 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app102908d0-2c88-4d61-9682-31a1944632f0, failed to update status of EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app102908d0-2c88-4d61-9682-31a1944632f0": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:05.307928 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0 for annotation not existing, possibly it is a new-created edgeapp
+I0921 18:14:05.317233 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0
+E0921 18:14:05.324850 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app102908d0-2c88-4d61-9682-31a1944632f0, failed to update status of EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app102908d0-2c88-4d61-9682-31a1944632f0": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:05.331036 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:05.347555 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:05.349796 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:05.364871 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:06.260917 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:06.267602 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:06.271678 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:07.270934 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:07.277105 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:07.282455 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:07.286902 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:07.286960 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-102908d0-2c88-4d61-9682-31a1944632f0
+[38;5;10m•[0mI0921 18:14:07.292181 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:07.292239 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:07.297478 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:07.297769 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-102908d0-2c88-4d61-9682-31a1944632f0
+I0921 18:14:07.306640 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:07.325680 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:07.342631 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:07.342775 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:07.348696 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:07.390223 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:14:07.394930 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee, failed to update status of EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:07.397964 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee, failed to update status of EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:07.399497 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee
+E0921 18:14:07.402782 1872806 reconciler.go:85] failed to update status for edgeApp default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee, failed to update status of EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:07.413210 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee, failed to update status of EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:07.415541 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee, failed to update status of EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:07.423178 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee for annotation not existing, possibly it is a new-created edgeapp
+I0921 18:14:07.432270 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee
+E0921 18:14:07.436080 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee, failed to update status of EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:07.445023 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:07.465307 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:07.478590 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:07.498523 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:08.356528 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:08.363484 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:08.365876 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:09.370798 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:09.375962 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:09.380763 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:09.385639 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:09.385701 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-8f56c833-3a61-4b57-82cf-197fa320c5ee
+[38;5;10m•[0mI0921 18:14:09.390946 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:09.390980 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:09.398555 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:09.398640 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-8f56c833-3a61-4b57-82cf-197fa320c5ee
+I0921 18:14:09.408857 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:09.427269 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:09.446175 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:09.446384 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:09.454163 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:09.496822 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:14:09.503676 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd, failed to update status of EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:09.507790 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd, failed to update status of EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:09.509992 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+E0921 18:14:09.516616 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd, failed to update status of EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:09.523465 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd, failed to update status of EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:09.531014 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:14:09.549255 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd, failed to update status of EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:09.550297 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:09.561016 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:09.578126 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:09.588755 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:09.609801 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:10.471327 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:10.507319 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:10.519574 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:11.476516 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:11.477836 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+E0921 18:14:11.478710 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:11.478730 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:11.479572 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+[38;5;10m•[0mE0921 18:14:11.480790 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:11.480804 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:11.480811 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:11.482041 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:11.482047 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:11.483272 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:11.483318 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:11.484137 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-58d300db-7b0d-4e17-8f2c-8408e2f7b9bd
+I0921 18:14:11.484153 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:11.487817 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:11.491442 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:11.491465 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:11.499072 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:11.507339 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8 for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:14:11.508777 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8, failed to update status of EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:11.509363 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8, failed to update status of EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:11.511461 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8
+E0921 18:14:11.511677 1872806 reconciler.go:85] failed to update status for edgeApp default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8, failed to update status of EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:11.518603 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8, failed to update status of EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:11.518653 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8, failed to update status of EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:11.519672 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8 for annotation not existing, possibly it is a new-created edgeapp
+I0921 18:14:11.522555 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:11.534267 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8
+E0921 18:14:11.534502 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8, failed to update status of EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:11.544809 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:11.559354 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:11.571776 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:11.592910 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:12.507542 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:12.533099 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:12.544604 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:13.518621 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:13.524355 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:13.528759 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:13.533391 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:13.533464 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+E0921 18:14:13.538343 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:13.538394 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:13.538417 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+[38;5;10m•[0mI0921 18:14:13.543389 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:13.543438 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:13.548717 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:13.548754 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:13.548769 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+E0921 18:14:13.551331 1872806 nodegroupcontroller.go:252] failed to remove finalizer on nodegroup location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8": StorageError: invalid object, Code: 4, Key: /registry/apps.kubeedge.io/nodegroups/location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8, ResourceVersion: 0, AdditionalErrorMsg: Precondition failed: UID in precondition: 9059045c-c6bc-44ca-a15b-2d1673c15548, UID in object meta: 
+I0921 18:14:13.551427 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:13.555884 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:13.573125 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-9a5190a2-4a03-40e9-b694-4006fddb1ca8
+I0921 18:14:13.573164 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:13.588898 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:13.589014 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:13.597075 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:13.631033 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:14:13.634405 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d, failed to update status of EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:13.636213 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d
+E0921 18:14:13.636397 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d, failed to update status of EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:13.638373 1872806 reconciler.go:85] failed to update status for edgeApp default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d, failed to update status of EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:13.644858 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d, failed to update status of EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:13.646053 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d for annotation not existing, possibly it is a new-created edgeapp
+I0921 18:14:13.649337 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:13.658125 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:13.662726 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:13.675819 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:14.618013 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:14.699223 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d
+E0921 18:14:14.700561 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d, failed to update status of EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:14.720715 1872806 edgeapplicationcontroller.go:214] failed to remove resource default/apps-cm29cf1bc2-932a-4c86-b72f-36b273854b3d of gvk /v1, Kind=ConfigMap, failed to get obj default/apps-cm29cf1bc2-932a-4c86-b72f-36b273854b3d of gvk /v1, Kind=ConfigMap, configmaps "apps-cm29cf1bc2-932a-4c86-b72f-36b273854b3d" not found
+E0921 18:14:14.720746 1872806 edgeapplicationcontroller.go:187] failed to delete redundant resource for EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d, failed to get obj default/apps-cm29cf1bc2-932a-4c86-b72f-36b273854b3d of gvk /v1, Kind=ConfigMap, configmaps "apps-cm29cf1bc2-932a-4c86-b72f-36b273854b3d" not found
+I0921 18:14:14.730809 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:14.741534 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:15.638073 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:15.642997 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:15.648912 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:15.663469 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:15.663490 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-29cf1bc2-932a-4c86-b72f-36b273854b3d
+[38;5;10m•[0mI0921 18:14:15.667142 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:15.667187 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:15.673606 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:15.673693 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-29cf1bc2-932a-4c86-b72f-36b273854b3d
+I0921 18:14:15.683717 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:15.701418 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:15.720536 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:15.720722 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1d440516-35bd-4a03-aa23-80d00cf11cc5
+E0921 18:14:15.724720 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location2-1d440516-35bd-4a03-aa23-80d00cf11cc5, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location2-1d440516-35bd-4a03-aa23-80d00cf11cc5": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:15.724798 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:15.726665 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:15.730202 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:15.767725 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5 for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:14:15.771267 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5, failed to update status of EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:15.776584 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5, failed to update status of EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:15.778007 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5
+E0921 18:14:15.780196 1872806 reconciler.go:85] failed to update status for edgeApp default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5, failed to update status of EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:15.783364 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5, failed to update status of EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:15.786695 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5, failed to update status of EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:15.789148 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:15.803680 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5
+E0921 18:14:15.807475 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5, failed to update status of EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:15.813443 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:15.827661 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:15.841407 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:15.861316 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:16.748736 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:16.787865 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:16.808014 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:17.766394 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:17.772255 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:17.777065 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:17.782209 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:17.782245 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-1d440516-35bd-4a03-aa23-80d00cf11cc5
+[38;5;10m•[0mI0921 18:14:17.786391 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:17.786423 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:17.790758 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:17.790797 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1d440516-35bd-4a03-aa23-80d00cf11cc5
+I0921 18:14:17.799316 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:17.818807 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:17.837133 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:17.837350 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:17.843785 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:17.882204 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:14:17.885731 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c, failed to update status of EdgeApplication default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:17.889350 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c, failed to update status of EdgeApplication default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:17.890528 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c
+E0921 18:14:17.901430 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c, failed to update status of EdgeApplication default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:17.902143 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c, failed to update status of EdgeApplication default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:17.907335 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c for annotation not existing, possibly it is a new-created edgeapp
+I0921 18:14:17.914721 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c
+E0921 18:14:17.920234 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c, failed to update status of EdgeApplication default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:17.924435 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:17.947188 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:17.959784 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:17.979134 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:18.860352 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:18.865520 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:18.870344 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:18.874869 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:18.874926 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-8cbd974f-5c98-4f38-b974-acfc76b0137c
+E0921 18:14:18.878626 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location2-8cbd974f-5c98-4f38-b974-acfc76b0137c, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location2-8cbd974f-5c98-4f38-b974-acfc76b0137c": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:18.878694 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:18.878725 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-8cbd974f-5c98-4f38-b974-acfc76b0137c
+[38;5;10m•[0mI0921 18:14:18.883609 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:18.883642 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:18.889384 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:18.889458 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:18.889492 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-8cbd974f-5c98-4f38-b974-acfc76b0137c
+E0921 18:14:18.891880 1872806 nodegroupcontroller.go:252] failed to remove finalizer on nodegroup location2-8cbd974f-5c98-4f38-b974-acfc76b0137c, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location2-8cbd974f-5c98-4f38-b974-acfc76b0137c": StorageError: invalid object, Code: 4, Key: /registry/apps.kubeedge.io/nodegroups/location2-8cbd974f-5c98-4f38-b974-acfc76b0137c, ResourceVersion: 0, AdditionalErrorMsg: Precondition failed: UID in precondition: df67d2f9-3da2-4b5b-9531-5ab5f836f2be, UID in object meta: 
+I0921 18:14:18.891939 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:18.894515 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-a6b9f252-207f-4a3a-acf1-213da52e07e6
+I0921 18:14:18.911067 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-8cbd974f-5c98-4f38-b974-acfc76b0137c
+I0921 18:14:18.911109 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-a6b9f252-207f-4a3a-acf1-213da52e07e6
+I0921 18:14:18.926098 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-a6b9f252-207f-4a3a-acf1-213da52e07e6
+I0921 18:14:18.926212 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-a6b9f252-207f-4a3a-acf1-213da52e07e6
+I0921 18:14:18.934670 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-a6b9f252-207f-4a3a-acf1-213da52e07e6
+I0921 18:14:18.940121 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-a6b9f252-207f-4a3a-acf1-213da52e07e6
+E0921 18:14:18.944162 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-a6b9f252-207f-4a3a-acf1-213da52e07e6, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-a6b9f252-207f-4a3a-acf1-213da52e07e6": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:18.944252 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-a6b9f252-207f-4a3a-acf1-213da52e07e6
+I0921 18:14:18.948651 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-a6b9f252-207f-4a3a-acf1-213da52e07e6
+I0921 18:14:18.948690 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-a6b9f252-207f-4a3a-acf1-213da52e07e6
+[38;5;10m•[0mI0921 18:14:18.953210 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-a6b9f252-207f-4a3a-acf1-213da52e07e6
+I0921 18:14:18.953285 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-a6b9f252-207f-4a3a-acf1-213da52e07e6
+I0921 18:14:18.958402 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-a6b9f252-207f-4a3a-acf1-213da52e07e6
+I0921 18:14:18.958530 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-a6b9f252-207f-4a3a-acf1-213da52e07e6
+I0921 18:14:18.965881 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:18.981902 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:19.001314 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:19.001522 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:19.009864 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:19.048343 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58 for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:14:19.053302 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app1827ffc6-1386-4917-8037-66a821f91f58, failed to update status of EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app1827ffc6-1386-4917-8037-66a821f91f58": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:19.057051 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58
+E0921 18:14:19.057163 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app1827ffc6-1386-4917-8037-66a821f91f58, failed to update status of EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app1827ffc6-1386-4917-8037-66a821f91f58": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:19.067001 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app1827ffc6-1386-4917-8037-66a821f91f58, failed to update status of EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app1827ffc6-1386-4917-8037-66a821f91f58": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:19.069128 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app1827ffc6-1386-4917-8037-66a821f91f58, failed to update status of EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app1827ffc6-1386-4917-8037-66a821f91f58": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:19.072566 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:19.090403 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58
+E0921 18:14:19.091573 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-app1827ffc6-1386-4917-8037-66a821f91f58, failed to update status of EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-app1827ffc6-1386-4917-8037-66a821f91f58": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:19.100311 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:19.121602 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:19.144974 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:20.032363 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:20.048621 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:20.051676 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-app1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:21.036271 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:21.041704 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:21.048261 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:21.054751 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:21.054860 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-1827ffc6-1386-4917-8037-66a821f91f58
+[38;5;10m•[0mI0921 18:14:21.060278 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:21.060318 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:21.066199 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:21.066330 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-1827ffc6-1386-4917-8037-66a821f91f58
+I0921 18:14:21.073714 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:21.088277 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:21.099098 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:21.099165 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:21.111034 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:21.127222 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:14:21.129024 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e, failed to update status of EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:21.130206 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e
+E0921 18:14:21.130453 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e, failed to update status of EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:21.131794 1872806 reconciler.go:85] failed to update status for edgeApp default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e, failed to update status of EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:21.138291 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e
+E0921 18:14:21.140902 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e, failed to update status of EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:21.142833 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:21.152321 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:21.157857 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:21.168628 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:22.141334 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:22.157876 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:22.173071 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appb994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:23.133228 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:23.134902 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:23.136064 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+E0921 18:14:23.136947 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location1-b994c1d6-0de4-49ce-8c59-0b8419aead2e, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location1-b994c1d6-0de4-49ce-8c59-0b8419aead2e": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:23.136959 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+[38;5;10m•[0mE0921 18:14:23.137670 1872806 nodegroupcontroller.go:179] failed to update status for nodegroup location2-b994c1d6-0de4-49ce-8c59-0b8419aead2e, Operation cannot be fulfilled on nodegroups.apps.kubeedge.io "location2-b994c1d6-0de4-49ce-8c59-0b8419aead2e": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:23.137685 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:23.137693 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:23.138855 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:23.138864 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:23.140157 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:23.140170 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:23.143569 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:23.143580 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-ac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:23.147300 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-b994c1d6-0de4-49ce-8c59-0b8419aead2e
+I0921 18:14:23.147312 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:23.147343 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-ac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:23.153861 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:23.161598 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:14:23.162708 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b, failed to update status of EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appac6051b5-3ce2-41f9-8022-3793b841485b": the object has been modified; please apply your changes to the latest version and try again
+E0921 18:14:23.163173 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b, failed to update status of EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appac6051b5-3ce2-41f9-8022-3793b841485b": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:23.163412 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b
+E0921 18:14:23.164125 1872806 reconciler.go:85] failed to update status for edgeApp default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b, failed to update status of EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appac6051b5-3ce2-41f9-8022-3793b841485b": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:23.168296 1872806 edgeapplicationcontroller.go:444] cannot get last contained resources of EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b for annotation not existing, possibly it is a new-created edgeapp
+E0921 18:14:23.170790 1872806 reconciler.go:65] failed to update status for edgeApp default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b, failed to update status of EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b, Operation cannot be fulfilled on edgeapplications.apps.kubeedge.io "edge-appac6051b5-3ce2-41f9-8022-3793b841485b": the object has been modified; please apply your changes to the latest version and try again
+I0921 18:14:23.171177 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:23.175148 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:23.185762 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:23.194337 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:24.184605 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:24.200323 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:24.212667 1872806 edgeapplicationcontroller.go:71] Reconciling EdgeApplication default/edge-appac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:25.184870 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:25.190481 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:25.195085 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-ac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:25.200742 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:25.200796 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-ac6051b5-3ce2-41f9-8022-3793b841485b
+[38;5;10m•[0mI0921 18:14:25.205498 1872806 statusmanager.go:197] status controller stopped which was watching gvk /v1, Kind=ConfigMap
+I0921 18:14:25.205510 1872806 statusmanager.go:197] status controller stopped which was watching gvk apps/v1, Kind=Deployment
+I0921 18:14:25.205509 1872806 statusmanager.go:197] status controller stopped which was watching gvk /v1, Kind=Service
+I0921 18:14:25.205560 1872806 statusmanager.go:137] cancelWatchWorker exited
+I0921 18:14:25.205595 1872806 statusmanager.go:118] watchStatusWorker exited
+E0921 18:14:25.205707 1872806 nodegroupcontroller.go:252] failed to remove finalizer on nodegroup location1-ac6051b5-3ce2-41f9-8022-3793b841485b, Put "https://127.0.0.1:33149/apis/apps.kubeedge.io/v1alpha1/nodegroups/location1-ac6051b5-3ce2-41f9-8022-3793b841485b": context canceled
+I0921 18:14:25.205785 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location2-ac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:25.205819 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location2-ac6051b5-3ce2-41f9-8022-3793b841485b
+E0921 18:14:25.205952 1872806 nodegroupcontroller.go:252] failed to remove finalizer on nodegroup location2-ac6051b5-3ce2-41f9-8022-3793b841485b, client rate limiter Wait returned an error: context canceled
+I0921 18:14:25.205977 1872806 nodegroupcontroller.go:61] Reconciling nodeGroup location1-ac6051b5-3ce2-41f9-8022-3793b841485b
+I0921 18:14:25.205992 1872806 nodegroupcontroller.go:75] begin to remove node group label on nodes selected by nodegroup location1-ac6051b5-3ce2-41f9-8022-3793b841485b
+E0921 18:14:25.206076 1872806 nodegroupcontroller.go:252] failed to remove finalizer on nodegroup location1-ac6051b5-3ce2-41f9-8022-3793b841485b, client rate limiter Wait returned an error: context canceled
+
+
+[38;5;10m[1mRan 37 of 37 Specs in 66.805 seconds[0m
+[38;5;10m[1mSUCCESS![0m -- [38;5;10m[1m37 Passed[0m | [38;5;9m[1m0 Failed[0m | [38;5;11m[1m0 Pending[0m | [38;5;14m[1m0 Skipped[0m
+--- PASS: TestAppsAPIs (66.81s)
+PASS
+ok  	github.com/kubeedge/kubeedge/cloud/test/integration/controllermanager	66.819s

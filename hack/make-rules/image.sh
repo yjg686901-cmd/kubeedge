@@ -25,7 +25,6 @@ KUBEEDGE_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd -P)"
 ALL_IMAGES_AND_TARGETS=(
   #{target}:{IMAGE_NAME}:{DOCKERFILE_PATH}
   cloudcore:cloudcore:build/cloud/Dockerfile
-  admission:admission:build/admission/Dockerfile
   edgecore:edgecore:build/edge/Dockerfile
   edgesite-agent:edgesite-agent:build/edgesite/agent-build.Dockerfile
   edgesite-server:edgesite-server:build/edgesite/server-build.Dockerfile

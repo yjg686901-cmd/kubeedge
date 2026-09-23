@@ -177,7 +177,6 @@ kubeedge::check::env() {
 
 ALL_BINARIES_AND_TARGETS=(
   cloudcore:cloud/cmd/cloudcore
-  admission:cloud/cmd/admission
   keadm:keadm/cmd/keadm
   edgecore:edge/cmd/edgecore
   edgesite-agent:edgesite/cmd/edgesite-agent

@@ -6,7 +6,6 @@ INSTALL_BIN_DIR?=${INSTALL_DIR}/bin
 # make all builds both cloud and edge binaries
 
 BINARIES=cloudcore \
-	admission \
 	edgecore \
 	edgesite-agent \
 	edgesite-server \

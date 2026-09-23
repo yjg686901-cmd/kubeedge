@@ -71,14 +71,17 @@ func TestTimeoutJob(t *testing.T) {
 
 	t.Run("wait for call ChackTimeout method", func(t *testing.T) {
 		fakeHandler := &fakeReconcileHandler{}
-		job := &TimeoutJob[operationsv1alpha2.ImagePrePullJob]{
-			nodeJobName: "test-job",
-			handler:     fakeHandler,
-			ticker:      time.NewTicker(1 * time.Second),
-		}
-		go job.Run(ctx)
+		job := NewTimeoutJob("test-job", fakeHandler)
+		job.ticker.Stop()
+		job.ticker = time.NewTicker(1 * time.Second)
+		done := make(chan struct{})
+		go func() {
+			defer close(done)
+			job.Run(ctx)
+		}()
 		time.Sleep(1200 * time.Millisecond)
 		job.Stop(ctx)
+		<-done
 		assert.True(t, job.IsStopped())
 		assert.Equal(t, 1, fakeHandler.called["CheckTimeout"])
 	})

@@ -23,6 +23,20 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- end -}}
 {{- end -}}
 
+{{/* Keep CloudCore schedulable after reinstalling legacy values. */}}
+{{- define "cloudcore.cloudCoreTolerations" -}}
+{{- if .Values.cloudCore.tolerations -}}
+{{- toYaml .Values.cloudCore.tolerations -}}
+{{- else -}}
+- key: node-role.kubernetes.io/master
+  operator: Exists
+  effect: NoSchedule
+- key: node-role.kubernetes.io/control-plane
+  operator: Exists
+  effect: NoSchedule
+{{- end -}}
+{{- end -}}
+
 {{/*
 Generate certificates for kubeedge cloudstream server
 */}}

@@ -34,9 +34,7 @@ spec:
       {{- with .Values.cloudCore.affinity }}
       affinity: {{ toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.cloudCore.tolerations }}
-      tolerations: {{ toYaml . | nindent 8 }}
-      {{- end }}
+      tolerations: {{- include "cloudcore.cloudCoreTolerations" . | nindent 8 }}
       serviceAccount: cloudcore
       {{- with .Values.cloudCore.image.pullSecrets }} 
       imagePullSecrets: {{ toYaml . | nindent 8 }} 

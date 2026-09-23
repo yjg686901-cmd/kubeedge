@@ -42,6 +42,54 @@ import (
 )
 
 var _ = Describe("Controller Manager Webhook Server", func() {
+	DescribeTable("should serve every admission route over TLS",
+		func(path string, operation admissionv1.Operation, object string, wantAllowed, wantPatch bool) {
+			certPEM, err := os.ReadFile(filepath.Join(webhookCertDir, "tls.crt"))
+			Expect(err).NotTo(HaveOccurred())
+			roots := x509.NewCertPool()
+			Expect(roots.AppendCertsFromPEM(certPEM)).To(BeTrue())
+			client := &http.Client{Transport: &http.Transport{TLSClientConfig: &tls.Config{
+				RootCAs: roots, MinVersion: tls.VersionTLS12,
+			}}, Timeout: 5 * time.Second}
+			review := admissionv1.AdmissionReview{
+				TypeMeta: metav1.TypeMeta{APIVersion: "admission.k8s.io/v1", Kind: "AdmissionReview"},
+				Request: &admissionv1.AdmissionRequest{
+					UID: types.UID("all-routes-test"), Operation: operation,
+					Object: runtime.RawExtension{Raw: []byte(object)},
+				},
+			}
+			body, err := json.Marshal(review)
+			Expect(err).NotTo(HaveOccurred())
+			req, err := http.NewRequest(http.MethodPost,
+				fmt.Sprintf("https://localhost:%d%s", webhookPort, path), bytes.NewReader(body))
+			Expect(err).NotTo(HaveOccurred())
+			req.Header.Set("Content-Type", "application/json")
+			resp, err := client.Do(req)
+			Expect(err).NotTo(HaveOccurred())
+			defer resp.Body.Close()
+			Expect(resp.StatusCode).To(Equal(http.StatusOK))
+			var result admissionv1.AdmissionReview
+			Expect(json.NewDecoder(resp.Body).Decode(&result)).To(Succeed())
+			Expect(result.Response).NotTo(BeNil())
+			Expect(result.Response.UID).To(Equal(review.Request.UID))
+			Expect(result.Response.Allowed).To(Equal(wantAllowed), path)
+			if wantPatch {
+				Expect(result.Response.PatchType).NotTo(BeNil())
+				Expect(*result.Response.PatchType).To(Equal(admissionv1.PatchTypeJSONPatch))
+				Expect(result.Response.Patch).NotTo(BeEmpty())
+			}
+		},
+		Entry("devices", "/devices", admissionv1.Delete, `{}`, true, false),
+		Entry("device model validation", "/devicemodels", admissionv1.Delete, `{}`, true, false),
+		Entry("rules", "/rules", admissionv1.Delete, `{}`, true, false),
+		Entry("rule endpoints", "/ruleendpoints", admissionv1.Delete, `{}`, true, false),
+		Entry("node upgrade validation", "/nodeupgradejobs", admissionv1.Delete, `{}`, true, false),
+		Entry("invalid device is denied", "/devices", admissionv1.Create,
+			`{"spec":{"properties":[{"name":"duplicate"},{"name":"duplicate"}]}}`, false, false),
+		Entry("offline migration mutation", "/offlinemigration", admissionv1.Create, `{"spec":{}}`, true, true),
+		Entry("node upgrade mutation", "/mutating/nodeupgradejobs", admissionv1.Create, `{"spec":{}}`, true, true),
+	)
+
 	It("should serve AdmissionReview over TLS", func() {
 		By("waiting for webhook server readiness")
 

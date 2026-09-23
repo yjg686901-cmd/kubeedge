@@ -39,6 +39,8 @@ func NewControllerManagerCommand(ctx context.Context) *cobra.Command {
 				opts.MetricsBindAddress,
 				opts.WebhookPort,
 				opts.WebhookCertDir,
+				opts.LeaderElect,
+				opts.LeaderElectionNamespace,
 			)
 			if err != nil {
 				klog.Fatalf("failed to get controller manager, %v", err)
