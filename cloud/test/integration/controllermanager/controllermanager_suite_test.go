@@ -21,6 +21,7 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"path/filepath"
 	"testing"
 	"time"
 
@@ -70,7 +71,12 @@ var _ = BeforeSuite(func() {
 
 	By("bootstrapping test environment")
 	testEnv = &envtest.Environment{
-		CRDDirectoryPaths:     []string{appsCRDDirectoryPath},
+		CRDDirectoryPaths: []string{
+			appsCRDDirectoryPath,
+			filepath.Join(filepath.Dir(appsCRDDirectoryPath), "devices"),
+			filepath.Join(filepath.Dir(appsCRDDirectoryPath), "operations"),
+			filepath.Join(filepath.Dir(appsCRDDirectoryPath), "router"),
+		},
 		BinaryAssetsDirectory: envtestBinDir,
 	}
 
@@ -105,6 +111,8 @@ var _ = BeforeSuite(func() {
 		"0",
 		webhookPort,
 		webhookCertDir,
+		false,
+		"",
 	)
 	Expect(err).To(BeNil())
 

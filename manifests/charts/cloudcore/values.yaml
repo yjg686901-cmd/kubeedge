@@ -24,7 +24,13 @@ cloudCore:
         - matchExpressions:
           - key: node-role.kubernetes.io/edge
             operator: DoesNotExist
-  tolerations: []
+  tolerations:
+    - key: "node-role.kubernetes.io/master"
+      operator: "Exists"
+      effect: "NoSchedule"
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
   nodeSelector: {}
   resources:
     limits:
@@ -111,6 +117,9 @@ iptablesManager:
 
 controllerManager:
   enable: false
+  replicaCount: 2
+  leaderElection:
+    enabled: true
   webhook:
     enable: false
     port: 9443
@@ -148,36 +157,6 @@ controllerManager:
     requests:
       cpu: 100m
       memory: 25Mi
-
-admission:
-  enable: false
-  replicaCount: 1
-  certsSecretName: ""
-  image:
-    repository: "kubeedge/admission"
-    tag: "v1.23.0"
-    pullPolicy: "IfNotPresent"
-    pullSecrets: []
-  labels:
-    k8s-app: kubeedge-admission
-    kubeedge: kubeedge-admission
-  annotations: {}
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-          - matchExpressions:
-              - key: node-role.kubernetes.io/edge
-                operator: DoesNotExist
-  tolerations: []
-  nodeSelector: {}
-  resources:
-    limits:
-      cpu: 200m
-      memory: 128Mi
-    requests:
-      cpu: 100m
-      memory: 64Mi
 
 mosquitto:
   enable: true

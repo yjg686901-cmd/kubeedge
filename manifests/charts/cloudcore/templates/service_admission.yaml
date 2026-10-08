@@ -1,6 +1,4 @@
-{{- if and .Values.admission.enable .Values.controllerManager.webhook.enable }}
-{{- fail "admission.enable and controllerManager.webhook.enable cannot both be true; select one webhook backend" }}
-{{- end }}
+{{- $webhookPort := default 9443 .Values.controllerManager.webhook.port }}
 {{- if and .Values.controllerManager.webhook.enable (not .Values.controllerManager.enable) }}
 {{- fail "controllerManager.enable must be true when controllerManager.webhook.enable is true" }}
 {{- end }}
@@ -10,33 +8,18 @@
 {{- if and .Values.controllerManager.webhook.enable (not .Values.controllerManager.webhook.caBundle) }}
 {{- fail "controllerManager.webhook.caBundle is required when the controller-manager webhook is enabled" }}
 {{- end }}
-{{- if or .Values.admission.enable .Values.controllerManager.webhook.enable }}
+{{- if .Values.controllerManager.webhook.enable }}
 apiVersion: v1
 kind: Service
 metadata:
-  {{- with .Values.admission.labels }}
-  labels: {{- toYaml . | nindent 4 }}
-  {{- end }}
+  labels: {{- toYaml .Values.controllerManager.labels | nindent 4 }}
   name: kubeedge-admission-service
   namespace: {{ .Release.Namespace }}
 spec:
   ports:
     - port: 443
       protocol: TCP
-      {{- if .Values.controllerManager.webhook.enable }}
-      targetPort: {{ .Values.controllerManager.webhook.port }}
-      {{- else }}
-      targetPort: 443
-      {{- end }}
-  selector:
-  {{- if .Values.controllerManager.webhook.enable }}
-  {{- with .Values.controllerManager.labels }}
-  {{- toYaml . | nindent 4 }}
-  {{- end }}
-  {{- else }}
-  {{- with .Values.admission.labels }}
-  {{- toYaml . | nindent 4 }}
-  {{- end }}
-  {{- end }}
+      targetPort: {{ $webhookPort }}
+  selector: {{- toYaml .Values.controllerManager.labels | nindent 4 }}
   sessionAffinity: None
 {{- end }}

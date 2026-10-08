@@ -20,22 +20,16 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# The root of the build/dist directory
 KUBEEDGE_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
+temporary_dir=$(mktemp -d)
+trap 'rm -rf "${temporary_dir}"' EXIT
 
-function kubeedge::git::check_status() {
-	# check if there's any uncommitted changes on go.mod, go.sum or vendor/
-	echo $( git status --short 2>/dev/null | grep -E "go.mod|go.sum|vendor/" |wc -l)
-}
+cd "${KUBEEDGE_ROOT}"
+go work vendor -o "${temporary_dir}/vendor"
 
-${KUBEEDGE_ROOT}/hack/update-vendor.sh
-
-git status
-
-ret=$(kubeedge::git::check_status)
-if [ ${ret} -eq 0 ]; then
+if diff -qr vendor "${temporary_dir}/vendor"; then
 	echo "SUCCESS: Vendor Verified."
 else
-	echo  "FAILED: Vendor Verify failed. Please run the command to check your directories: git status"
+	echo "FAILED: Vendor differs from the Go workspace dependency graph." >&2
 	exit 1
 fi

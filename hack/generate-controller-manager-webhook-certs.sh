@@ -55,9 +55,11 @@ cat <<EOF
 Generated webhook certificates in ${output_dir}.
 
 Create or replace the TLS Secret:
-  kubectl -n ${namespace} create secret tls kubeedge-webhook-certs \\
-    --cert=${output_dir}/tls.crt \\
-    --key=${output_dir}/tls.key \\
+  kubectl -n ${namespace} create secret generic kubeedge-webhook-certs \\
+    --type=kubernetes.io/tls \\
+    --from-file=tls.crt=${output_dir}/tls.crt \\
+    --from-file=tls.key=${output_dir}/tls.key \\
+    --from-file=ca.crt=${output_dir}/ca.crt \\
     --dry-run=client -o yaml | kubectl apply -f -
 
 The CA bundle is available in ${output_dir}/ca-bundle.txt.

@@ -49,7 +49,7 @@ shift 4
   # so we can install the tools.
   cd "$(dirname "${0}")"
 
-  GOWORK=off GOFLAGS=-mod=vendor go install k8s.io/code-generator/cmd/{defaulter-gen,client-gen,lister-gen,informer-gen,deepcopy-gen}
+  GOFLAGS=-mod=vendor go install k8s.io/code-generator/cmd/{defaulter-gen,client-gen,lister-gen,informer-gen,deepcopy-gen}
 )
 
 function codegen::join() { local IFS="$1"; shift; echo "$*"; }

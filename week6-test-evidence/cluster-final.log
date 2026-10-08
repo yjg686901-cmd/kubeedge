@@ -1,0 +1,28 @@
+2026-09-23T16:12:11+08:00
+== helm history ==
+REVISION	UPDATED                 	STATUS    	CHART           	APP VERSION	DESCRIPTION                                          
+1       	Wed Sep 23 15:34:07 2026	superseded	cloudcore-1.23.0	1.23.0     	Install complete                                     
+2       	Wed Sep 23 15:36:11 2026	superseded	cloudcore-1.23.0	1.23.0     	Upgrade complete                                     
+3       	Wed Sep 23 15:58:59 2026	failed    	cloudcore-1.23.0	1.23.0     	Upgrade "cloudcore" failed: context deadline exceeded
+4       	Wed Sep 23 16:04:00 2026	failed    	cloudcore-1.23.0	1.23.0     	Release "cloudcore" failed: context deadline exceeded
+5       	Wed Sep 23 16:09:19 2026	superseded	cloudcore-1.23.0	1.23.0     	Rollback to 2                                        
+6       	Wed Sep 23 16:09:41 2026	superseded	cloudcore-1.23.0	1.23.0     	Upgrade complete                                     
+7       	Wed Sep 23 16:10:02 2026	superseded	cloudcore-1.23.0	1.23.0     	Rollback to 5                                        
+8       	Wed Sep 23 16:10:02 2026	deployed  	cloudcore-1.23.0	1.23.0     	Upgrade complete                                     
+== deployments ==
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS           IMAGES                                                       SELECTOR
+cloudcore                     1/1     1            1           38m   cloudcore            docker.io/kubeedge/cloudcore:v1.19.2-runtimeclass-20260812   k8s-app=kubeedge,kubeedge=cloudcore
+kubeedge-controller-manager   2/2     2            2           38m   controller-manager   docker.io/kubeedge/controller-manager:week5-go1.25.13        k8s-app=controller-manager,kubeedge=controller-manager
+== service endpoints ==
+NAME                         ENDPOINTS                                 AGE
+kubeedge-admission-service   10.244.235.192:9443,10.244.235.255:9443   38m
+== old resources must be absent ==
+== webhook ownership ==
+Helm
+validatedevice.kubeedge.io
+validatedevicemodel.kubeedge.io
+validatedrule.kubeedge.io
+validatedruleendpoint.kubeedge.io
+validatenodeupgradejob.kubeedge.io
+kubeedge-mutating-webhook Helm
+mutate-offlinemigration Helm

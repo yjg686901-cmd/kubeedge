@@ -1,0 +1,5 @@
+==> Linting /home/ubuntu/kubeedge-week4-test/manifests/charts/cloudcore
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
+controller-manager webhook chart verification passed

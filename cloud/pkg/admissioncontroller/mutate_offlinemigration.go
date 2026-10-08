@@ -24,7 +24,13 @@ func mutateOfflineMigration(review admissionv1.AdmissionReview) *admissionv1.Adm
 
 func generatePatch(tolerations []corev1.Toleration) []patchMapValue {
 	for _, toleration := range tolerations {
-		if toleration.Key == corev1.TaintNodeUnreachable {
+		// The API server adds a 300-second NoExecute toleration before calling
+		// mutating webhooks.  That temporary default must not suppress the
+		// permanent autonomy toleration.  Treat only the exact mutation target
+		// as already present, which also keeps repeated admission idempotent.
+		if toleration.Key == corev1.TaintNodeUnreachable &&
+			toleration.Operator == corev1.TolerationOpExists &&
+			toleration.Effect == "" && toleration.TolerationSeconds == nil {
 			return nil
 		}
 	}

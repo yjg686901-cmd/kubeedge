@@ -1,14 +1,15 @@
-FROM golang:1.23.12-alpine3.21 AS builder
+FROM golang:1.25.13-alpine3.23 AS builder
 
 ARG GO_LDFLAGS
 
-COPY . /go/src/github.com/kubeedge/kubeedge
+WORKDIR /src/kubeedge
+COPY . .
 
-RUN CGO_ENABLED=0 GO111MODULE=off go build -v -o /usr/local/bin/controllermanager -ldflags "$GO_LDFLAGS -w -s" \
-    github.com/kubeedge/kubeedge/cloud/cmd/controllermanager
+RUN CGO_ENABLED=0 go build -mod=vendor -v -o /usr/local/bin/controllermanager -ldflags "$GO_LDFLAGS -w -s" \
+    ./cloud/cmd/controllermanager
 
 
-FROM alpine:3.21
+FROM alpine:3.23
 
 COPY --from=builder /usr/local/bin/controllermanager /usr/local/bin/controllermanager
 

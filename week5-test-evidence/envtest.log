@@ -1,0 +1,376 @@
+=== RUN   TestAppsAPIs
+Running Suite: NodeGroup Test Suite - /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager
+===============================================================================================================
+Random Seed: [1m1789984125[0m
+
+Will run [1m37[0m of [1m37[0m specs
+E0921 17:48:48.464112 1850542 statusmanager.go:206] failed to list EdgeApplication, the cache is not started, can not read objects
+[38;5;243m------------------------------[0m
+[38;5;9m• [FAILED] [62.034 seconds][0m
+[0mTest NodeGroup Controller [38;5;243mTest Lifecycle Event [0mwhen create nodegroup [38;5;9m[1m[It] should be added with finalizer[0m
+[38;5;243m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:109[0m
+
+  [38;5;243mTimeline >>[0m
+  [1mSTEP:[0m wait for the nodegroup to be added with finalizer [38;5;243m@ 09/21/26 17:48:50.49[0m
+  [38;5;9m[FAILED][0m in [It] - /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:118 [38;5;243m@ 09/21/26 17:49:50.491[0m
+  [38;5;243m<< Timeline[0m
+
+  [38;5;9m[FAILED] Timed out after 60.001s.
+  Expected
+      <bool>: false
+  to be true[0m
+  [38;5;9mIn [1m[It][0m[38;5;9m at: [1m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:118[0m [38;5;243m@ 09/21/26 17:49:50.491[0m
+[38;5;243m------------------------------[0m
+[38;5;9m• [FAILED] [60.010 seconds][0m
+[0mTest NodeGroup Controller [38;5;243mTest Lifecycle Event [38;5;9m[1mwhen delete nodegroup [BeforeEach] [38;5;243mshould remove all nodegroup labels on nodes and then remove its finalizer[0m
+  [38;5;9m[BeforeEach][0m [38;5;243m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:123[0m
+  [38;5;243m[It] /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:134[0m
+
+  [38;5;243mTimeline >>[0m
+  [1mSTEP:[0m create one node in the cluster [38;5;243m@ 09/21/26 17:49:50.499[0m
+  [1mSTEP:[0m create nodegroup in the cluster [38;5;243m@ 09/21/26 17:49:50.504[0m
+  [1mSTEP:[0m wait for the node to be labeled [38;5;243m@ 09/21/26 17:49:50.508[0m
+  [38;5;9m[FAILED][0m in [BeforeEach] - /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:132 [38;5;243m@ 09/21/26 17:50:50.508[0m
+  [38;5;243m<< Timeline[0m
+
+  [38;5;9m[FAILED] Timed out after 60.000s.
+  Expected
+      <bool>: false
+  to be true[0m
+  [38;5;9mIn [1m[BeforeEach][0m[38;5;9m at: [1m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:132[0m [38;5;243m@ 09/21/26 17:50:50.508[0m
+[38;5;243m------------------------------[0m
+[38;5;9m• [FAILED] [60.024 seconds][0m
+[0mTest NodeGroup Controller [38;5;243mTest Functionality [38;5;9m[1mwhen node changed [BeforeEach] [38;5;243mwhen node label changed [0mshould add this node into nodegroup if new labels match MatchLabels[0m
+  [38;5;9m[BeforeEach][0m [38;5;243m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:160[0m
+  [38;5;243m[It] /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:176[0m
+
+  [38;5;243mTimeline >>[0m
+  [1mSTEP:[0m create nodes [38;5;243m@ 09/21/26 17:50:50.509[0m
+  [1mSTEP:[0m create nodegroups [38;5;243m@ 09/21/26 17:50:50.514[0m
+  [38;5;9m[FAILED][0m in [BeforeEach] - /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:166 [38;5;243m@ 09/21/26 17:51:50.52[0m
+  [1mSTEP:[0m delete nodegroups [38;5;243m@ 09/21/26 17:51:50.52[0m
+  [1mSTEP:[0m delete nodes [38;5;243m@ 09/21/26 17:51:50.526[0m
+  [38;5;243m<< Timeline[0m
+
+  [38;5;9m[FAILED] Timed out after 60.000s.
+  Expected
+      <bool>: false
+  to be true[0m
+  [38;5;9mIn [1m[BeforeEach][0m[38;5;9m at: [1m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:166[0m [38;5;243m@ 09/21/26 17:51:50.52[0m
+[38;5;243m------------------------------[0m
+[38;5;9m• [FAILED] [60.021 seconds][0m
+[0mTest NodeGroup Controller [38;5;243mTest Functionality [38;5;9m[1mwhen node changed [BeforeEach] [38;5;243mwhen node label changed [0mshould remove this node from nodegroup and evict pods that can only run in this nodegroup if new labels does not match MatchLabels[0m
+  [38;5;9m[BeforeEach][0m [38;5;243m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:160[0m
+  [38;5;243m[It] /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:187[0m
+
+  [38;5;243mTimeline >>[0m
+  [1mSTEP:[0m create nodes [38;5;243m@ 09/21/26 17:51:50.533[0m
+  [1mSTEP:[0m create nodegroups [38;5;243m@ 09/21/26 17:51:50.539[0m
+  [38;5;9m[FAILED][0m in [BeforeEach] - /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:166 [38;5;243m@ 09/21/26 17:52:50.543[0m
+  [1mSTEP:[0m delete nodegroups [38;5;243m@ 09/21/26 17:52:50.543[0m
+  [1mSTEP:[0m delete nodes [38;5;243m@ 09/21/26 17:52:50.547[0m
+  [38;5;243m<< Timeline[0m
+
+  [38;5;9m[FAILED] Timed out after 60.001s.
+  Expected
+      <bool>: false
+  to be true[0m
+  [38;5;9mIn [1m[BeforeEach][0m[38;5;9m at: [1m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:166[0m [38;5;243m@ 09/21/26 17:52:50.543[0m
+[38;5;243m------------------------------[0m
+[38;5;9m• [FAILED] [60.023 seconds][0m
+[0mTest NodeGroup Controller [38;5;243mTest Functionality [38;5;9m[1mwhen node changed [BeforeEach] [38;5;243mwhen node label changed [0mshould be re-added with belongingTo label on node if it be removed[0m
+  [38;5;9m[BeforeEach][0m [38;5;243m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:160[0m
+  [38;5;243m[It] /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:243[0m
+
+  [38;5;243mTimeline >>[0m
+  [1mSTEP:[0m create nodes [38;5;243m@ 09/21/26 17:52:50.554[0m
+  [1mSTEP:[0m create nodegroups [38;5;243m@ 09/21/26 17:52:50.561[0m
+  [38;5;9m[FAILED][0m in [BeforeEach] - /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:166 [38;5;243m@ 09/21/26 17:53:50.566[0m
+  [1mSTEP:[0m delete nodegroups [38;5;243m@ 09/21/26 17:53:50.566[0m
+  [1mSTEP:[0m delete nodes [38;5;243m@ 09/21/26 17:53:50.571[0m
+  [38;5;243m<< Timeline[0m
+
+  [38;5;9m[FAILED] Timed out after 60.000s.
+  Expected
+      <bool>: false
+  to be true[0m
+  [38;5;9mIn [1m[BeforeEach][0m[38;5;9m at: [1m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:166[0m [38;5;243m@ 09/21/26 17:53:50.566[0m
+[38;5;243m------------------------------[0m
+[38;5;9m• [FAILED] [60.026 seconds][0m
+[0mTest NodeGroup Controller [38;5;243mTest Functionality [38;5;9m[1mwhen node changed [BeforeEach] [38;5;243mwhen node ReadyCondition changed [0mshould update relative status entry for this node[0m
+  [38;5;9m[BeforeEach][0m [38;5;243m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:160[0m
+  [38;5;243m[It] /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:253[0m
+
+  [38;5;243mTimeline >>[0m
+  [1mSTEP:[0m create nodes [38;5;243m@ 09/21/26 17:53:50.578[0m
+  [1mSTEP:[0m create nodegroups [38;5;243m@ 09/21/26 17:53:50.584[0m
+  [38;5;9m[FAILED][0m in [BeforeEach] - /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:166 [38;5;243m@ 09/21/26 17:54:50.589[0m
+  [1mSTEP:[0m delete nodegroups [38;5;243m@ 09/21/26 17:54:50.589[0m
+  [1mSTEP:[0m delete nodes [38;5;243m@ 09/21/26 17:54:50.595[0m
+  [38;5;243m<< Timeline[0m
+
+  [38;5;9m[FAILED] Timed out after 60.001s.
+  Expected
+      <bool>: false
+  to be true[0m
+  [38;5;9mIn [1m[BeforeEach][0m[38;5;9m at: [1m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:166[0m [38;5;243m@ 09/21/26 17:54:50.589[0m
+[38;5;243m------------------------------[0m
+[38;5;9m• [FAILED] [60.037 seconds][0m
+[0mTest NodeGroup Controller [38;5;243mTest Functionality [0mwhen create nodegroup [38;5;9m[1m[It] should select nodes only with node names[0m
+[38;5;243m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:290[0m
+
+  [38;5;243mTimeline >>[0m
+  [1mSTEP:[0m create nodes [38;5;243m@ 09/21/26 17:54:50.604[0m
+  [1mSTEP:[0m create additional nodes [38;5;243m@ 09/21/26 17:54:50.611[0m
+  [38;5;9m[FAILED][0m in [It] - /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:300 [38;5;243m@ 09/21/26 17:55:50.624[0m
+  [1mSTEP:[0m delete additional nodes [38;5;243m@ 09/21/26 17:55:50.624[0m
+  [1mSTEP:[0m delete nodes [38;5;243m@ 09/21/26 17:55:50.634[0m
+  [38;5;243m<< Timeline[0m
+
+  [38;5;9m[FAILED] Timed out after 60.000s.
+  Expected
+      <bool>: false
+  to be true[0m
+  [38;5;9mIn [1m[It][0m[38;5;9m at: [1m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:300[0m [38;5;243m@ 09/21/26 17:55:50.624[0m
+[38;5;243m------------------------------[0m
+[38;5;9m• [FAILED] [60.034 seconds][0m
+[0mTest NodeGroup Controller [38;5;243mTest Functionality [0mwhen create nodegroup [38;5;9m[1m[It] should select nodes only with labels[0m
+[38;5;243m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:311[0m
+
+  [38;5;243mTimeline >>[0m
+  [1mSTEP:[0m create nodes [38;5;243m@ 09/21/26 17:55:50.642[0m
+  [1mSTEP:[0m create additional nodes [38;5;243m@ 09/21/26 17:55:50.649[0m
+  [38;5;9m[FAILED][0m in [It] - /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:321 [38;5;243m@ 09/21/26 17:56:50.661[0m
+  [1mSTEP:[0m delete additional nodes [38;5;243m@ 09/21/26 17:56:50.661[0m
+  [1mSTEP:[0m delete nodes [38;5;243m@ 09/21/26 17:56:50.669[0m
+  [38;5;243m<< Timeline[0m
+
+  [38;5;9m[FAILED] Timed out after 60.001s.
+  Expected
+      <bool>: false
+  to be true[0m
+  [38;5;9mIn [1m[It][0m[38;5;9m at: [1m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:321[0m [38;5;243m@ 09/21/26 17:56:50.661[0m
+[38;5;243m------------------------------[0m
+[38;5;9m• [FAILED] [60.039 seconds][0m
+[0mTest NodeGroup Controller [38;5;243mTest Functionality [0mwhen create nodegroup [38;5;9m[1m[It] should select nodes that match all labels[0m
+[38;5;243m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:332[0m
+
+  [38;5;243mTimeline >>[0m
+  [1mSTEP:[0m create nodes [38;5;243m@ 09/21/26 17:56:50.676[0m
+  [1mSTEP:[0m create additional nodes [38;5;243m@ 09/21/26 17:56:50.682[0m
+  [38;5;9m[FAILED][0m in [It] - /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:342 [38;5;243m@ 09/21/26 17:57:50.701[0m
+  [1mSTEP:[0m delete additional nodes [38;5;243m@ 09/21/26 17:57:50.701[0m
+  [1mSTEP:[0m delete nodes [38;5;243m@ 09/21/26 17:57:50.709[0m
+  [38;5;243m<< Timeline[0m
+
+  [38;5;9m[FAILED] Timed out after 60.000s.
+  Expected
+      <bool>: false
+  to be true[0m
+  [38;5;9mIn [1m[It][0m[38;5;9m at: [1m/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:342[0m [38;5;243m@ 09/21/26 17:57:50.701[0m
+[38;5;243m------------------------------[0m
+panic: test timed out after 10m0s
+	running tests:
+		TestAppsAPIs (10m0s)
+
+goroutine 1203 [running]:
+testing.(*M).startAlarm.func1()
+	/home/ubuntu/.local/go1.23.12/src/testing/testing.go:2373 +0x385
+created by time.goFunc
+	/home/ubuntu/.local/go1.23.12/src/time/sleep.go:215 +0x2d
+
+goroutine 1 [chan receive, 10 minutes]:
+testing.(*T).Run(0xc000441520, {0x1d47430?, 0x0?}, 0x1e65fb0)
+	/home/ubuntu/.local/go1.23.12/src/testing/testing.go:1751 +0x3ab
+testing.runTests.func1(0xc000441520)
+	/home/ubuntu/.local/go1.23.12/src/testing/testing.go:2168 +0x37
+testing.tRunner(0xc000441520, 0xc000071c70)
+	/home/ubuntu/.local/go1.23.12/src/testing/testing.go:1690 +0xf4
+testing.runTests(0xc0000131d0, {0x2fa9010, 0x1, 0x1}, {0x475710?, 0x47537a?, 0x2ff9f40?})
+	/home/ubuntu/.local/go1.23.12/src/testing/testing.go:2166 +0x43d
+testing.(*M).Run(0xc0001775e0)
+	/home/ubuntu/.local/go1.23.12/src/testing/testing.go:2034 +0x64a
+main.main()
+	_testmain.go:45 +0x9b
+
+goroutine 64 [select]:
+github.com/onsi/ginkgo/v2/internal.(*Suite).runNode(_, {0x21, 0x4, {0x1dc9ef2, 0x5c}, 0xc000300450, {{0x24f1018, 0x63}, 0x15d, {0x0, ...}, ...}, ...}, ...)
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/ginkgo/v2/internal/suite.go:916 +0xfc5
+github.com/onsi/ginkgo/v2/internal.(*group).attemptSpec(0xc000a59810, 0x1, {{0xc0005e4a88?, 0xc0006e6840?, 0x3?}, 0x0?})
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/ginkgo/v2/internal/group.go:199 +0xc33
+github.com/onsi/ginkgo/v2/internal.(*group).run(0xc000a59810, {0xc000a00420?, 0x0?, 0x0?})
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/ginkgo/v2/internal/group.go:349 +0x905
+github.com/onsi/ginkgo/v2/internal.(*Suite).runSpecs(0xc0002b0a88, {0x1d54566, 0x14}, {0x301c8e0, 0x0, 0x0}, {0xc00005e0a4, 0x49}, 0x0, {0xc000788008, ...})
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/ginkgo/v2/internal/suite.go:489 +0xa9b
+github.com/onsi/ginkgo/v2/internal.(*Suite).Run(_, {_, _}, {_, _, _}, {_, _}, _, {0x204e510, ...}, ...)
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/ginkgo/v2/internal/suite.go:130 +0x41e
+github.com/onsi/ginkgo/v2.RunSpecs({0x20264c0, 0xc0004416c0}, {0x1d54566, 0x14}, {0x0, 0x0, 0x0})
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/ginkgo/v2/core_dsl.go:300 +0x893
+github.com/kubeedge/kubeedge/cloud/test/integration/controllermanager.TestAppsAPIs(0xc0004416c0)
+	/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_suite_test.go:161 +0x45
+testing.tRunner(0xc0004416c0, 0x1e65fb0)
+	/home/ubuntu/.local/go1.23.12/src/testing/testing.go:1690 +0xf4
+created by testing.(*T).Run in goroutine 1
+	/home/ubuntu/.local/go1.23.12/src/testing/testing.go:1743 +0x390
+
+goroutine 43 [syscall, 10 minutes]:
+os/signal.signal_recv()
+	/home/ubuntu/.local/go1.23.12/src/runtime/sigqueue.go:152 +0x29
+os/signal.loop()
+	/home/ubuntu/.local/go1.23.12/src/os/signal/signal_unix.go:23 +0x13
+created by os/signal.Notify.func1.1 in goroutine 64
+	/home/ubuntu/.local/go1.23.12/src/os/signal/signal.go:151 +0x1f
+
+goroutine 44 [select, 10 minutes]:
+github.com/onsi/ginkgo/v2/internal/interrupt_handler.(*InterruptHandler).registerForInterrupts.func2(0x0?)
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/ginkgo/v2/internal/interrupt_handler/interrupt_handler.go:131 +0x7d
+created by github.com/onsi/ginkgo/v2/internal/interrupt_handler.(*InterruptHandler).registerForInterrupts in goroutine 64
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/ginkgo/v2/internal/interrupt_handler/interrupt_handler.go:128 +0x165
+
+goroutine 82 [select, 10 minutes]:
+github.com/onsi/ginkgo/v2/internal.RegisterForProgressSignal.func1()
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/ginkgo/v2/internal/progress_report.go:32 +0x8b
+created by github.com/onsi/ginkgo/v2/internal.RegisterForProgressSignal in goroutine 64
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/ginkgo/v2/internal/progress_report.go:30 +0xd9
+
+goroutine 1141 [select]:
+github.com/onsi/gomega/internal.(*AsyncAssertion).match(0xc000412460, {0x2034fd0, 0xc00006d9d0}, 0x1, {0x0, 0x0, 0x0})
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/gomega/internal/async_assertion.go:546 +0x78c
+github.com/onsi/gomega/internal.(*AsyncAssertion).Should(0xc000412460, {0x2034fd0, 0xc00006d9d0}, {0x0, 0x0, 0x0})
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/gomega/internal/async_assertion.go:145 +0x86
+github.com/kubeedge/kubeedge/cloud/test/integration/controllermanager.init.func3.3.4.6()
+	/home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager/controllermanager_test.go:360 +0x3bd
+github.com/onsi/ginkgo/v2/internal.extractBodyFunction.func3({0xb21e36?, 0xc000dbaa80?})
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/ginkgo/v2/internal/node.go:475 +0x13
+github.com/onsi/ginkgo/v2/internal.(*Suite).runNode.func3()
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/ginkgo/v2/internal/suite.go:894 +0x7b
+created by github.com/onsi/ginkgo/v2/internal.(*Suite).runNode in goroutine 64
+	/home/ubuntu/kubeedge-week4-test/vendor/github.com/onsi/ginkgo/v2/internal/suite.go:881 +0xd7b
+
+goroutine 88 [syscall, 9 minutes]:
+syscall.Syscall6(0xf7, 0x3, 0xc, 0xc000111600, 0x4, 0xc000064360, 0x0)
+	/home/ubuntu/.local/go1.23.12/src/syscall/syscall_linux.go:95 +0x39
+os.(*Process).pidfdWait(0x24c32e9?)
+	/home/ubuntu/.local/go1.23.12/src/os/pidfd_linux.go:110 +0x236
+os.(*Process).wait(0x0?)
+	/home/ubuntu/.local/go1.23.12/src/os/exec_unix.go:27 +0x25
+os.(*Process).Wait(...)
+	/home/ubuntu/.local/go1.23.12/src/os/exec.go:358
+os/exec.(*Cmd).Wait(0xc0002d2d80)
+	/home/ubuntu/.local/go1.23.12/src/os/exec/exec.go:906 +0x45
+sigs.k8s.io/controller-runtime/pkg/internal/testing/process.(*State).Start.func1()
+	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/internal/testing/process/process.go:175 +0x55
+created by sigs.k8s.io/controller-runtime/pkg/internal/testing/process.(*State).Start in goroutine 83
+	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/internal/testing/process/process.go:173 +0x43b
+
+goroutine 114 [syscall, 9 minutes]:
+syscall.Syscall6(0xf7, 0x3, 0xe, 0xc000686600, 0x4, 0xc000228750, 0x0)
+	/home/ubuntu/.local/go1.23.12/src/syscall/syscall_linux.go:95 +0x39
+os.(*Process).pidfdWait(0x0?)
+	/home/ubuntu/.local/go1.23.12/src/os/pidfd_linux.go:110 +0x236
+os.(*Process).wait(0x0?)
+	/home/ubuntu/.local/go1.23.12/src/os/exec_unix.go:27 +0x25
+os.(*Process).Wait(...)
+	/home/ubuntu/.local/go1.23.12/src/os/exec.go:358
+os/exec.(*Cmd).Wait(0xc0002c0600)
+	/home/ubuntu/.local/go1.23.12/src/os/exec/exec.go:906 +0x45
+sigs.k8s.io/controller-runtime/pkg/internal/testing/process.(*State).Start.func1()
+	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/internal/testing/process/process.go:175 +0x55
+created by sigs.k8s.io/controller-runtime/pkg/internal/testing/process.(*State).Start in goroutine 83
+	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/internal/testing/process/process.go:173 +0x43b
+
+goroutine 266 [chan receive, 9 minutes]:
+github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/edgeapplication/statusmanager.(*statusManager).watchStatusWorker(0xc0003b2ee0)
+	/home/ubuntu/kubeedge-week4-test/cloud/pkg/controllermanager/edgeapplication/statusmanager/statusmanager.go:104 +0x66
+created by github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/edgeapplication/statusmanager.(*statusManager).Start in goroutine 83
+	/home/ubuntu/kubeedge-week4-test/cloud/pkg/controllermanager/edgeapplication/statusmanager/statusmanager.go:92 +0x65
+
+goroutine 213 [IO wait]:
+internal/poll.runtime_pollWait(0x7f4fdcf24e20, 0x72)
+	/home/ubuntu/.local/go1.23.12/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0xc00027b400?, 0xc000914000?, 0x0)
+	/home/ubuntu/.local/go1.23.12/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+	/home/ubuntu/.local/go1.23.12/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0xc00027b400, {0xc000914000, 0x6a80, 0x6a80})
+	/home/ubuntu/.local/go1.23.12/src/internal/poll/fd_unix.go:165 +0x27a
+net.(*netFD).Read(0xc00027b400, {0xc000914000?, 0xb0d4d2?, 0xc0001f79a0?})
+	/home/ubuntu/.local/go1.23.12/src/net/fd_posix.go:55 +0x25
+net.(*conn).Read(0xc0001ae4c8, {0xc000914000?, 0xc000648e80?, 0xc000914060?})
+	/home/ubuntu/.local/go1.23.12/src/net/net.go:189 +0x45
+crypto/tls.(*atLeastReader).Read(0xc00079caf8, {0xc000914000?, 0x0?, 0xc00079caf8?})
+	/home/ubuntu/.local/go1.23.12/src/crypto/tls/conn.go:809 +0x3b
+bytes.(*Buffer).ReadFrom(0xc0002ad0b8, {0x20272e0, 0xc00079caf8})
+	/home/ubuntu/.local/go1.23.12/src/bytes/buffer.go:211 +0x98
+crypto/tls.(*Conn).readFromUntil(0xc0002ace08, {0x2026980, 0xc0001ae4c8}, 0xc0001f7a10?)
+	/home/ubuntu/.local/go1.23.12/src/crypto/tls/conn.go:831 +0xde
+crypto/tls.(*Conn).readRecordOrCCS(0xc0002ace08, 0x0)
+	/home/ubuntu/.local/go1.23.12/src/crypto/tls/conn.go:629 +0x3cf
+crypto/tls.(*Conn).readRecord(...)
+	/home/ubuntu/.local/go1.23.12/src/crypto/tls/conn.go:591
+crypto/tls.(*Conn).Read(0xc0002ace08, {0xc00067b000, 0x1000, 0xc000e84c40?})
+	/home/ubuntu/.local/go1.23.12/src/crypto/tls/conn.go:1385 +0x150
+bufio.(*Reader).Read(0xc000673380, {0xc000792660, 0x9, 0x2fa6210?})
+	/home/ubuntu/.local/go1.23.12/src/bufio/bufio.go:241 +0x197
+io.ReadAtLeast({0x20267a0, 0xc000673380}, {0xc000792660, 0x9, 0x9}, 0x9)
+	/home/ubuntu/.local/go1.23.12/src/io/io.go:335 +0x90
+io.ReadFull(...)
+	/home/ubuntu/.local/go1.23.12/src/io/io.go:354
+golang.org/x/net/http2.readFrameHeader({0xc000792660, 0x9, 0x47c2c5?}, {0x20267a0?, 0xc000673380?})
+	/home/ubuntu/kubeedge-week4-test/vendor/golang.org/x/net/http2/frame.go:237 +0x65
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc000792620)
+	/home/ubuntu/kubeedge-week4-test/vendor/golang.org/x/net/http2/frame.go:501 +0x85
+golang.org/x/net/http2.(*clientConnReadLoop).run(0xc0001f7fa8)
+	/home/ubuntu/kubeedge-week4-test/vendor/golang.org/x/net/http2/transport.go:2258 +0xda
+golang.org/x/net/http2.(*ClientConn).readLoop(0xc00098f340)
+	/home/ubuntu/kubeedge-week4-test/vendor/golang.org/x/net/http2/transport.go:2127 +0x7c
+created by golang.org/x/net/http2.(*Transport).newClientConn in goroutine 212
+	/home/ubuntu/kubeedge-week4-test/vendor/golang.org/x/net/http2/transport.go:912 +0xdfb
+
+goroutine 244 [select, 9 minutes]:
+sigs.k8s.io/controller-runtime/pkg/cache.(*delegatingByGVKCache).Start(0xc000a016e0, {0x20461c0, 0xc00041a0a0})
+	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/cache/delegating_by_gvk_cache.go:93 +0x27e
+github.com/kubeedge/kubeedge/cloud/pkg/controllermanager.newAndStartCache.func1()
+	/home/ubuntu/kubeedge-week4-test/cloud/pkg/controllermanager/controllermanager.go:126 +0x30
+created by github.com/kubeedge/kubeedge/cloud/pkg/controllermanager.newAndStartCache in goroutine 83
+	/home/ubuntu/kubeedge-week4-test/cloud/pkg/controllermanager/controllermanager.go:125 +0x2d8
+
+goroutine 245 [chan receive, 9 minutes]:
+sigs.k8s.io/controller-runtime/pkg/cache/internal.(*Informers).Start(0xc0005bf540, {0x20461c0, 0xc00041a0a0})
+	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/cache/internal/informers.go:223 +0x49
+sigs.k8s.io/controller-runtime/pkg/cache.(*delegatingByGVKCache).Start.func1()
+	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/cache/delegating_by_gvk_cache.go:87 +0x62
+created by sigs.k8s.io/controller-runtime/pkg/cache.(*delegatingByGVKCache).Start in goroutine 244
+	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/cache/delegating_by_gvk_cache.go:85 +0x14c
+
+goroutine 246 [chan receive, 9 minutes]:
+sigs.k8s.io/controller-runtime/pkg/cache/internal.(*Informers).Start(0xc0005bf400, {0x20461c0, 0xc00041a0a0})
+	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/cache/internal/informers.go:223 +0x49
+sigs.k8s.io/controller-runtime/pkg/cache.(*delegatingByGVKCache).Start.func1()
+	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/cache/delegating_by_gvk_cache.go:87 +0x62
+created by sigs.k8s.io/controller-runtime/pkg/cache.(*delegatingByGVKCache).Start in goroutine 244
+	/home/ubuntu/kubeedge-week4-test/vendor/sigs.k8s.io/controller-runtime/pkg/cache/delegating_by_gvk_cache.go:85 +0x14c
+
+goroutine 267 [chan receive, 9 minutes]:
+github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/edgeapplication/statusmanager.(*statusManager).cancelWatchWorker(0xc0003b2ee0)
+	/home/ubuntu/kubeedge-week4-test/cloud/pkg/controllermanager/edgeapplication/statusmanager/statusmanager.go:122 +0x75
+created by github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/edgeapplication/statusmanager.(*statusManager).Start in goroutine 83
+	/home/ubuntu/kubeedge-week4-test/cloud/pkg/controllermanager/edgeapplication/statusmanager/statusmanager.go:93 +0xa5
+
+goroutine 268 [chan receive, 9 minutes]:
+github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/edgeapplication/statusmanager.(*statusManager).waitForTerminatingWorkers(...)
+	/home/ubuntu/kubeedge-week4-test/cloud/pkg/controllermanager/edgeapplication/statusmanager/statusmanager.go:141
+created by github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/edgeapplication/statusmanager.(*statusManager).Start in goroutine 83
+	/home/ubuntu/kubeedge-week4-test/cloud/pkg/controllermanager/edgeapplication/statusmanager/statusmanager.go:94 +0xe5
+
+goroutine 269 [select, 6 minutes]:
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil(0xc0004351c0, {0x20288a0, 0xc00083ebd0}, 0x1, 0xc000202a10)
+	/home/ubuntu/kubeedge-week4-test/vendor/k8s.io/apimachinery/pkg/util/wait/backoff.go:238 +0x12c
+k8s.io/apimachinery/pkg/util/wait.JitterUntil(0xc0004351c0, 0x45d964b800, 0x0, 0x1, 0xc000202a10)
+	/home/ubuntu/kubeedge-week4-test/vendor/k8s.io/apimachinery/pkg/util/wait/backoff.go:204 +0x7f
+k8s.io/apimachinery/pkg/util/wait.Until(...)
+	/home/ubuntu/kubeedge-week4-test/vendor/k8s.io/apimachinery/pkg/util/wait/backoff.go:161
+created by github.com/kubeedge/kubeedge/cloud/pkg/controllermanager/edgeapplication/statusmanager.(*statusManager).Start in goroutine 83
+	/home/ubuntu/kubeedge-week4-test/cloud/pkg/controllermanager/edgeapplication/statusmanager/statusmanager.go:95 +0x187
+FAIL	github.com/kubeedge/kubeedge/cloud/test/integration/controllermanager	600.020s
+FAIL

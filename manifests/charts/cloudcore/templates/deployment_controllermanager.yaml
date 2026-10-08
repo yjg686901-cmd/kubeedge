@@ -1,4 +1,10 @@
 {{- if (.Values.controllerManager.enable) }}
+{{- $leaderElectionEnabled := true }}
+{{- if hasKey .Values.controllerManager "leaderElection" }}
+{{- $leaderElectionEnabled = .Values.controllerManager.leaderElection.enabled }}
+{{- end }}
+{{- $webhookPort := default 9443 .Values.controllerManager.webhook.port }}
+{{- $webhookCertDir := default "/admission.local.config/certificates" .Values.controllerManager.webhook.certDir }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -11,6 +17,7 @@ metadata:
   name: kubeedge-controller-manager
   namespace: {{ .Release.Namespace }}
 spec:
+  replicas: {{ default 2 .Values.controllerManager.replicaCount }}
   selector:
     {{- with .Values.controllerManager.labels }}
     matchLabels: {{- toYaml . | nindent 6 }}
@@ -30,9 +37,13 @@ spec:
           imagePullPolicy: {{ .Values.controllerManager.image.pullPolicy }}
           args:
             - --health-probe-bind-address=:9001
+          {{- if $leaderElectionEnabled }}
+            - --leader-elect=true
+            - --leader-election-namespace={{ .Release.Namespace }}
+          {{- end }}
           {{- if .Values.controllerManager.webhook.enable }}
-            - --webhook-port={{ .Values.controllerManager.webhook.port }}
-            - --webhook-cert-dir={{ .Values.controllerManager.webhook.certDir }}
+            - --webhook-port={{ $webhookPort }}
+            - --webhook-cert-dir={{ $webhookCertDir }}
           {{- end }}
           ports:
             - name: healthz
@@ -40,13 +51,13 @@ spec:
               protocol: TCP
           {{- if .Values.controllerManager.webhook.enable }}
             - name: webhook
-              containerPort: {{ .Values.controllerManager.webhook.port }}
+              containerPort: {{ $webhookPort }}
               protocol: TCP
           {{- end }}
           {{- if and .Values.controllerManager.webhook.enable .Values.controllerManager.webhook.certsSecretName }}
           volumeMounts:
             - name: webhook-certs
-              mountPath: {{ .Values.controllerManager.webhook.certDir }}
+              mountPath: {{ $webhookCertDir }}
               readOnly: true
           {{- end }}
           livenessProbe:

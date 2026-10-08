@@ -50,13 +50,18 @@ func NewControllerManager(
 	metricsBindAddress string,
 	webhookPort int,
 	webhookCertDir string,
+	leaderElect bool,
+	leaderElectionNamespace string,
 ) (manager.Manager, error) {
 	const nothingCheckName = "nothing"
 
 	mgrOptions := controllerruntime.Options{
-		Scheme:                 kubeedgeScheme,
-		HealthProbeBindAddress: healthProbe,
-		Metrics:                metricsserver.Options{BindAddress: metricsBindAddress},
+		Scheme:                  kubeedgeScheme,
+		HealthProbeBindAddress:  healthProbe,
+		Metrics:                 metricsserver.Options{BindAddress: metricsBindAddress},
+		LeaderElection:          leaderElect,
+		LeaderElectionID:        "kubeedge-controller-manager",
+		LeaderElectionNamespace: leaderElectionNamespace,
 	}
 
 	var webhookServer webhook.Server

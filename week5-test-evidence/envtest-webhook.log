@@ -1,0 +1,17 @@
+=== RUN   TestAppsAPIs
+Running Suite: NodeGroup Test Suite - /home/ubuntu/kubeedge-week4-test/cloud/test/integration/controllermanager
+===============================================================================================================
+Random Seed: [1m1789985037[0m
+
+Will run [1m1[0m of [1m37[0m specs
+E0921 18:03:59.622716 1863446 statusmanager.go:206] failed to list EdgeApplication, the cache is not started, can not read objects
+[38;5;10m•[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0m[38;5;14mS[0mI0921 18:03:59.642889 1863446 statusmanager.go:137] cancelWatchWorker exited
+I0921 18:03:59.642900 1863446 statusmanager.go:118] watchStatusWorker exited
+W0921 18:03:59.723332 1863446 reflector.go:492] sigs.k8s.io/controller-runtime/pkg/cache/internal/informers.go:108: watch of *v1alpha1.EdgeApplication ended with: an error on the server ("unable to decode an event from the watch stream: context canceled") has prevented the request from succeeding
+
+
+[38;5;10m[1mRan 1 of 37 Specs in 3.651 seconds[0m
+[38;5;10m[1mSUCCESS![0m -- [38;5;10m[1m1 Passed[0m | [38;5;9m[1m0 Failed[0m | [38;5;11m[1m0 Pending[0m | [38;5;14m[1m36 Skipped[0m
+--- PASS: TestAppsAPIs (3.65s)
+PASS
+ok  	github.com/kubeedge/kubeedge/cloud/test/integration/controllermanager	3.664s

@@ -1,0 +1,90 @@
+name: Controller Manager Webhook
+
+on:
+  push:
+    paths:
+      - 'cloud/pkg/admissioncontroller/**'
+      - 'cloud/pkg/controllermanager/**'
+      - 'cloud/cmd/controllermanager/**'
+      - 'build/controllermanager/**'
+      - 'cloud/test/integration/controllermanager/**'
+      - 'manifests/charts/cloudcore/**'
+      - 'hack/test-controller-manager-webhook-e2e.sh'
+      - 'hack/verify-controller-manager-webhook-chart.sh'
+      - 'hack/generate-groups.sh'
+      - 'hack/update-vendor.sh'
+      - 'hack/verify-vendor.sh'
+      - 'go.mod'
+      - 'go.sum'
+      - 'vendor/**'
+      - '.github/workflows/controller-manager-webhook.yml'
+  pull_request:
+    paths:
+      - 'cloud/pkg/admissioncontroller/**'
+      - 'cloud/pkg/controllermanager/**'
+      - 'cloud/cmd/controllermanager/**'
+      - 'build/controllermanager/**'
+      - 'cloud/test/integration/controllermanager/**'
+      - 'manifests/charts/cloudcore/**'
+      - 'hack/test-controller-manager-webhook-e2e.sh'
+      - 'hack/verify-controller-manager-webhook-chart.sh'
+      - 'hack/generate-groups.sh'
+      - 'hack/update-vendor.sh'
+      - 'hack/verify-vendor.sh'
+      - 'go.mod'
+      - 'go.sum'
+      - 'vendor/**'
+      - '.github/workflows/controller-manager-webhook.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  webhook-checks:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - uses: azure/setup-helm@v4
+        with:
+          version: v3.16.4
+      - name: Verify Deployment, Service, and webhook chart
+        run: hack/verify-controller-manager-webhook-chart.sh
+      - name: Check dedicated-cluster E2E script syntax
+        run: bash -n hack/test-controller-manager-webhook-e2e.sh
+      - name: Run controller and admission unit tests
+        run: go test ./cloud/pkg/controllermanager/... ./cloud/pkg/admissioncontroller/...
+      - name: Race test admission and reconciler packages
+        run: go test -race ./cloud/pkg/admissioncontroller/... ./cloud/pkg/controllermanager/nodegroup/... ./cloud/pkg/controllermanager/nodetask/...
+      - name: Vet controller and admission packages
+        run: go vet ./cloud/pkg/controllermanager/... ./cloud/pkg/admissioncontroller/...
+      - name: Run Kubernetes 1.32 Envtest suite
+        run: |
+          go install sigs.k8s.io/controller-runtime/tools/setup-envtest@release-0.20
+          assets="$("$(go env GOPATH)/bin/setup-envtest" use 1.32.0 -p path)"
+          package=github.com/kubeedge/kubeedge/cloud/test/integration/controllermanager
+          go test ./cloud/test/integration/controllermanager -run TestAppsAPIs -count=1 -timeout=5m \
+            -ldflags "-X ${package}.appsCRDDirectoryPath=${PWD}/build/crds/apps -X ${package}.envtestBinDir=${assets}"
+      - name: Verify vendor
+        run: make verify-vendor
+      - name: Verify generated clients
+        if: ${{ !cancelled() }}
+        run: make verify-codegen
+      - name: Verify generated CRDs
+        if: ${{ !cancelled() }}
+        run: make verify-crds
+      - name: Scan controller manager dependencies
+        if: ${{ !cancelled() }}
+        run: |
+          GOTOOLCHAIN=local go install golang.org/x/vuln/cmd/govulncheck@v1.1.4
+          "$(go env GOPATH)/bin/govulncheck" ./cloud/cmd/controllermanager/... ./cloud/pkg/admissioncontroller/... ./cloud/pkg/controllermanager/...
+      - name: Compile controller manager for amd64 and arm64
+        if: ${{ !cancelled() }}
+        run: |
+          for arch in amd64 arm64; do
+            GOOS=linux GOARCH="$arch" CGO_ENABLED=0 go build -o "$RUNNER_TEMP/controllermanager-$arch" ./cloud/cmd/controllermanager
+          done

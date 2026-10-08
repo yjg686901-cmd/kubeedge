@@ -52,9 +52,10 @@ func TestMutateOfflineMigration(t *testing.T) {
 			wantTolerated: []corev1.Toleration{otherToleration, defaultUnreachableToleration()},
 		},
 		{
-			name:        "preserves custom unreachable toleration",
-			pod:         corev1.Pod{Spec: corev1.PodSpec{Tolerations: []corev1.Toleration{otherToleration, customUnreachableToleration}}},
-			wantNoPatch: true,
+			name:          "preserves custom unreachable toleration and adds autonomy toleration",
+			pod:           corev1.Pod{Spec: corev1.PodSpec{Tolerations: []corev1.Toleration{otherToleration, customUnreachableToleration}}},
+			wantPatchPath: "/spec/tolerations/-",
+			wantTolerated: []corev1.Toleration{otherToleration, customUnreachableToleration, defaultUnreachableToleration()},
 		},
 	}
 

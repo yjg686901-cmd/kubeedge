@@ -34,6 +34,9 @@ metadata:
     k8s-app: kubeedge
     kubeedge: controller-manager
 rules:
+- apiGroups: ["coordination.k8s.io"]
+  resources: ["leases"]
+  verbs: ["get", "list", "watch", "create", "update", "patch"]
 - apiGroups: ["apps.kubeedge.io"]
   resources: ["nodegroups", "nodegroups/status"]
   verbs: ["*"]
@@ -43,6 +46,9 @@ rules:
 - apiGroups: [""]
   resources: ["pods"]
   verbs: ["list", "watch", "get", "delete"]
+- apiGroups: [""]
+  resources: ["events"]
+  verbs: ["create", "patch"]
 - apiGroups: ["apps.kubeedge.io"]
   resources: ["edgeapplications", "edgeapplications/status"]
   verbs: ["*"]
@@ -52,3 +58,12 @@ rules:
 - apiGroups: [""]
   resources: ["services"]
   verbs: ["list", "watch", "create", "update", "patch", "delete", "get"]
+- apiGroups: ["devices.kubeedge.io"]
+  resources: ["devicemodels"]
+  verbs: ["get", "list"]
+- apiGroups: ["rules.kubeedge.io"]
+  resources: ["rules", "ruleendpoints"]
+  verbs: ["get", "list"]
+- apiGroups: ["operations.kubeedge.io"]
+  resources: ["nodeupgradejobs", "nodeupgradejobs/status", "imageprepulljobs", "imageprepulljobs/status", "configupdatejobs", "configupdatejobs/status"]
+  verbs: ["get", "list", "watch", "update", "patch"]

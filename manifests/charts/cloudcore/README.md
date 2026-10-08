@@ -83,19 +83,19 @@ helm upgrade --install cloudcore ./cloudcore \
 ```
 
 `controllerManager.webhook.caBundle` is the base64 encoded CA certificate used
-to sign the serving certificate. The chart rejects webhook deployments without
-the Secret name or CA bundle. It also rejects enabling the legacy Admission
-Deployment and the controller manager webhook at the same time because both use
-`kubeedge-admission-service`.
+to sign the serving certificate. The chart rejects webhook deployments without the Secret name or CA bundle.
+WebhookConfiguration resources are declarative Helm resources and are never
+created dynamically by the process.
 
-For rollback, upgrade the release with
-`controllerManager.webhook.enable=false` and `admission.enable=true`. This moves
-the Service selector and port back to the legacy Deployment in one Helm release.
-Keep the legacy image available until the controller manager webhook has passed
-the full admission regression suite in the target cluster.
+For rollback, use `helm history` and `helm rollback` to return to a previously
+validated Controller Manager chart revision. The standalone Admission binary,
+image, Deployment, and runtime rollback path have been removed.
 
-The chart also includes `values-controller-manager-webhook.yaml` for cutover and
-`values-legacy-admission-rollback.yaml` for rollback.
+The chart includes `values-controller-manager-webhook.yaml` for enabling the
+unified webhook server.
+
+See [Controller Manager Webhook Operations](../../../docs/controller-manager-webhook.md)
+for architecture, development, upgrade, rollback, and troubleshooting details.
 
 ## Uninstall
 

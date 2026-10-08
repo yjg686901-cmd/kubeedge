@@ -37,7 +37,7 @@ status: implemented
 
 ## Terminology
 
-* **KubeEdge components:** refers to binaries e.g. cloudcore, admission, edgecore, edgesite, etc.
+* **KubeEdge components:** refers to binaries e.g. cloudcore, controller-manager, edgecore, edgesite, etc. Admission webhooks are served by controller-manager and do not have a standalone binary.
 
 * **KubeEdge modules:** refers to modules e.g. cloudhub, edgecontroller, devicecontroller, devicetwin, edged, edgehub, eventbus, metamanager, servicebus, etc.
 

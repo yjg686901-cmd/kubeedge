@@ -1,66 +1,29 @@
 package admissioncontroller
 
 import (
-	"context"
 	"encoding/json"
 	"io"
 	"net/http"
 
 	admissionv1 "k8s.io/api/admission/v1"
-	admissionregistrationv1 "k8s.io/api/admissionregistration/v1"
-	apierrors "k8s.io/apimachinery/pkg/api/errors"
+	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	admissionregistrationv1client "k8s.io/client-go/kubernetes/typed/admissionregistration/v1"
+	"k8s.io/apimachinery/pkg/runtime"
+	"k8s.io/apimachinery/pkg/runtime/serializer"
+	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 	"k8s.io/klog/v2"
 
+	devicesv1beta1 "github.com/kubeedge/api/apis/devices/v1beta1"
 	"github.com/kubeedge/kubeedge/common/constants"
 )
 
-func registerValidateWebhook(client admissionregistrationv1client.ValidatingWebhookConfigurationInterface,
-	webhooks []admissionregistrationv1.ValidatingWebhookConfiguration) error {
-	for _, hook := range webhooks {
-		existing, err := client.Get(context.Background(), hook.Name, metav1.GetOptions{})
-		if err != nil && !apierrors.IsNotFound(err) {
-			return err
-		}
-		if err == nil && existing != nil {
-			existing.Webhooks = hook.Webhooks
-			klog.Infof("Updating ValidatingWebhookConfiguration: %v", hook.Name)
-			if _, err := client.Update(context.Background(), existing, metav1.UpdateOptions{}); err != nil {
-				return err
-			}
-		} else {
-			klog.Infof("Creating ValidatingWebhookConfiguration: %v", hook.Name)
-			if _, err := client.Create(context.Background(), &hook, metav1.CreateOptions{}); err != nil {
-				return err
-			}
-		}
-	}
-	return nil
-}
-
-func registerMutatingWebhook(client admissionregistrationv1client.MutatingWebhookConfigurationInterface,
-	webhooks []admissionregistrationv1.MutatingWebhookConfiguration) error {
-	for _, hook := range webhooks {
-		existing, err := client.Get(context.Background(), hook.Name, metav1.GetOptions{})
-		if err != nil && !apierrors.IsNotFound(err) {
-			return err
-		}
-		if err == nil && existing != nil {
-			existing.Webhooks = hook.Webhooks
-			klog.Infof("Updating MutatingWebhookConfiguration: %v", hook.Name)
-			if _, err := client.Update(context.Background(), existing, metav1.UpdateOptions{}); err != nil {
-				return err
-			}
-		} else {
-			klog.Infof("Creating MutatingWebhookConfiguration: %v", hook.Name)
-			if _, err := client.Create(context.Background(), &hook, metav1.CreateOptions{}); err != nil {
-				return err
-			}
-		}
-	}
-	return nil
-}
+var admissionCodecs = func() serializer.CodecFactory {
+	scheme := runtime.NewScheme()
+	utilruntime.Must(corev1.AddToScheme(scheme))
+	utilruntime.Must(admissionv1.AddToScheme(scheme))
+	utilruntime.Must(devicesv1beta1.AddDeviceCrds(scheme))
+	return serializer.NewCodecFactory(scheme)
+}()
 
 // hookFunc is the type we use for all of our validators and mutators
 type hookFunc func(admissionv1.AdmissionReview) *admissionv1.AdmissionResponse
@@ -88,7 +51,7 @@ func serve(w http.ResponseWriter, r *http.Request, hook hookFunc) {
 	responseAdmissionReview := admissionv1.AdmissionReview{}
 	responseAdmissionReview.SetGroupVersionKind(admissionv1.SchemeGroupVersion.WithKind("AdmissionReview"))
 
-	deserializer := codecs.UniversalDeserializer()
+	deserializer := admissionCodecs.UniversalDeserializer()
 	if _, _, err := deserializer.Decode(body, nil, &requestedAdmissionReview); err != nil {
 		klog.Errorf("decode failed with error: %v", err)
 		responseAdmissionReview.Response = toAdmissionResponse(err)
