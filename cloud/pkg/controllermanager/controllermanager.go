@@ -88,7 +88,6 @@ func NewControllerManager(
 		if err := admissioncontroller.RegisterWebhooks(webhookServer, kubeCfg); err != nil {
 			return nil, fmt.Errorf("failed to register admission webhooks: %w", err)
 		}
-
 	}
 
 	if err := mgr.AddHealthzCheck(nothingCheckName, func(_ *http.Request) error {
