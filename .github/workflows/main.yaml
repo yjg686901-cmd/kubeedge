@@ -320,6 +320,7 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     name: Keadm e2e test
+    needs: image-prepare
     env:
       GO111MODULE: on
     steps:
@@ -363,6 +364,17 @@ jobs:
           large-packages: true
           docker-images: true
           swap-storage: true
+
+      - name: Retrieve saved kubeedge/build-tools image
+        uses: actions/download-artifact@v4
+        with:
+          name: build-tools-docker-artifact
+          path: /home/runner/build-tools
+
+      - name: Load Go 1.26.9 build-tools image
+        run: |
+          docker load < /home/runner/build-tools/build-tools.tar
+          docker image inspect kubeedge/build-tools:1.26.9-ke1 >/dev/null
 
       - run: make keadm_e2e
 
