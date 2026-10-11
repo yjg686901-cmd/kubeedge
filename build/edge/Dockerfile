@@ -10,13 +10,16 @@ RUN apk update && apk add curl && \
 curl -L -o /tmp/qemu-${QEMU_ARCH}-static.tar.gz https://github.com/multiarch/qemu-user-static/releases/download/v3.0.0/qemu-${QEMU_ARCH}-static.tar.gz && \
 tar -xzf /tmp/qemu-${QEMU_ARCH}-static.tar.gz -C /usr/bin
 
-COPY . /go/src/github.com/kubeedge/kubeedge
+WORKDIR /src/kubeedge
+COPY . .
+
+ENV GOTOOLCHAIN=local
 
 RUN apk --no-cache update && \
 apk --no-cache upgrade && \
 apk --no-cache add build-base linux-headers sqlite-dev binutils-gold && \
-CGO_ENABLED=1 GO111MODULE=off go build -v -o /usr/local/bin/edgecore -ldflags="${GO_LDFLAGS} -w -s -extldflags -static" \
-github.com/kubeedge/kubeedge/edge/cmd/edgecore
+CGO_ENABLED=1 go build -mod=vendor -v -o /usr/local/bin/edgecore -ldflags="${GO_LDFLAGS} -w -s -extldflags -static" \
+./edge/cmd/edgecore
 
 FROM ${RUN_FROM}
 
