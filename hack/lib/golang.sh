@@ -57,7 +57,7 @@ kubeedge::version::get_version_info() {
     GIT_TREE_STATE="dirty"
   fi
 
-  GIT_VERSION=$(git describe --tags --abbrev=14 "${GIT_COMMIT}^{commit}" 2>/dev/null)
+  GIT_VERSION=$(git describe --tags --abbrev=14 "${GIT_COMMIT}^{commit}" 2>/dev/null) || GIT_VERSION=""
   if [[ -z "${GIT_VERSION}" ]]; then
     echo >&2
     echo "⚠️  No git tags found." >&2

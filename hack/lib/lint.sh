@@ -50,33 +50,57 @@ function kubeedge::lint::init() {
 
 kubeedge::lint::check() {
     kubeedge::lint::init
-    cd ${KUBEEDGE_ROOT}
-    echo "start lint ..."
-    set +o pipefail
-    echo "check any white noise ..."
-    # skip deleted files
-    if [[ "$OSTYPE" == "darwin"* ]]
-    then
-      git diff --cached --name-only --diff-filter=ACRMTU master | grep -Ev "externalversions|fake|vendor|images|adopters" | xargs $SED_CMD -i 's/[ \t]*$//'
-    elif [[ "$OSTYPE" == "linux"* ]]
-    then
-      git diff --cached --name-only --diff-filter=ACRMTU master | grep -Ev "externalversions|fake|vendor|images|adopters" | xargs --no-run-if-empty $SED_CMD -i 's/[ \t]*$//'
-    else
-      echo "Unsupported OS $OSTYPE"
-      exit 1
-    fi
+    cd "${KUBEEDGE_ROOT}"
 
-    [[ $(git diff --name-only) ]] && {
-      echo "Some files have white noise issue, please run \`make lint\` to solve and \`git status\` to find and fix this issue"
-      return 1
-    }
-    set -o pipefail
+    echo "start lint ..."
+    echo "check whitespace in working tree ..."
+
+    # Read-only checks: do not rewrite repository files.
+    git diff --check HEAD
+
+    # Include committed PR changes when a base branch is available.
+    if [[ -n "${GITHUB_BASE_REF:-}" ]]; then
+        local base_ref="refs/remotes/origin/${GITHUB_BASE_REF}"
+        local base_commit
+
+        if ! git rev-parse --verify "${base_ref}^{commit}" >/dev/null 2>&1; then
+            echo "Cannot resolve PR base ref: ${base_ref}" >&2
+            return 1
+        fi
+
+        base_commit="$(git merge-base HEAD "${base_ref}")" || return 1
+        git diff --check "${base_commit}" HEAD
+    fi
 
     echo "check any issue by golangci-lint ..."
     GOOS="linux" golangci-lint run -v --timeout=12m
 
-    # check codes under staging dir, this will also use .golangci.yaml in the {KUBEEDGE_ROOT} dir
     echo "check any issue by golangci-lint under staging dir ..."
-    cd "${KUBEEDGE_ROOT}/staging/src/github.com/kubeedge/beehive" && GOOS="linux" golangci-lint run -v --timeout=1m
-    cd "${KUBEEDGE_ROOT}/staging/src/github.com/kubeedge/mapper-framework" && GOOS="linux" golangci-lint run -v --timeout=2m
+    cd "${KUBEEDGE_ROOT}/staging/src/github.com/kubeedge/beehive"
+    GOOS="linux" golangci-lint run -v --timeout=1m
+
+    cd "${KUBEEDGE_ROOT}/staging/src/github.com/kubeedge/mapper-framework"
+    GOOS="linux" golangci-lint run -v --timeout=2m
+
+    echo "check gofmt and goimports ..."
+    cd "${KUBEEDGE_ROOT}"
+
+    local fmt_output
+    fmt_output="$(mktemp)" || return 1
+
+    if ! GOOS="linux" golangci-lint fmt --diff >"${fmt_output}" 2>&1; then
+        cat "${fmt_output}"
+        rm -f "${fmt_output}"
+        return 1
+    fi
+
+    if [[ -s "${fmt_output}" ]]; then
+        cat "${fmt_output}"
+        rm -f "${fmt_output}"
+        echo "Go formatting differences detected" >&2
+        return 1
+    fi
+
+    rm -f "${fmt_output}"
+    echo "Go formatting check passed"
 }

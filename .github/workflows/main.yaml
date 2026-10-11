@@ -35,7 +35,7 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v4
         with:
-          go-version: 1.23.x
+          go-version: '1.26.9'
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -65,11 +65,19 @@ jobs:
     timeout-minutes: 30
     name: Prepare kubeedge/build-tools image
     steps:
-      - name: Pull kubeedge/build-tools image
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Go 1.26.9 build-tools image
         run: |
-          docker pull kubeedge/build-tools:1.23.12-ke1
+          docker build --build-arg ARCH=amd64 \
+            -t kubeedge/build-tools:1.26.9-ke1 \
+            -f build/docker/build-tools/build-tools.dockerfile .
+
+          docker run --rm kubeedge/build-tools:1.26.9-ke1 go version
+
           mkdir -p /home/runner/build-tools/
-          docker save kubeedge/build-tools:1.23.12-ke1 > /home/runner/build-tools/build-tools.tar
+          docker save kubeedge/build-tools:1.26.9-ke1 > /home/runner/build-tools/build-tools.tar
 
       - name: Temporarily save kubeedge/build-tools image
         uses: actions/upload-artifact@v4
@@ -127,7 +135,7 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v4
         with:
-          go-version: 1.23.x
+          go-version: '1.26.9'
 
       - uses: actions/cache@v4
         with:
@@ -192,7 +200,7 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v4
         with:
-          go-version: 1.23.x
+          go-version: '1.26.9'
 
       - uses: actions/cache@v4
         with:
@@ -263,7 +271,7 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v4
         with:
-          go-version: 1.23.x
+          go-version: '1.26.9'
 
       - uses: actions/cache@v4
         with:
@@ -304,7 +312,7 @@ jobs:
 
       - name: enable cri config in containerd service
         run: |
-          containerd config default | sudo tee /etc/containerd/config.toml && sudo systemctl restart containerd.service         
+          containerd config default | sudo tee /etc/containerd/config.toml && sudo systemctl restart containerd.service
 
       - run: make keadm_deprecated_e2e
 
@@ -312,13 +320,14 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     name: Keadm e2e test
+    needs: image-prepare
     env:
       GO111MODULE: on
     steps:
       - name: Install Go
         uses: actions/setup-go@v4
         with:
-          go-version: 1.23.x
+          go-version: '1.26.9'
 
       - uses: actions/cache@v4
         with:
@@ -355,6 +364,17 @@ jobs:
           large-packages: true
           docker-images: true
           swap-storage: true
+
+      - name: Retrieve saved kubeedge/build-tools image
+        uses: actions/download-artifact@v4
+        with:
+          name: build-tools-docker-artifact
+          path: /home/runner/build-tools
+
+      - name: Load Go 1.26.9 build-tools image
+        run: |
+          docker load < /home/runner/build-tools/build-tools.tar
+          docker image inspect kubeedge/build-tools:1.26.9-ke1 >/dev/null
 
       - run: make keadm_e2e
 
@@ -393,7 +413,7 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v4
         with:
-          go-version: 1.23.x
+          go-version: '1.26.9'
 
       - uses: actions/cache@v4
         with:
@@ -453,7 +473,7 @@ jobs:
         - name: Install Go
           uses: actions/setup-go@v4
           with:
-            go-version: 1.23.x
+            go-version: '1.26.9'
 
         - uses: actions/cache@v4
           with:
